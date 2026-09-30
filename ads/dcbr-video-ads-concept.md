@@ -109,3 +109,20 @@ di un'agenzia piccola, trasparente sui numeri.
 2. Logo DCBR (e colori brand) per le end card.
 3. Voice-over: voce AI o dialoghi in presa diretta generati da Seedance?
 4. Città/area da citare (se c'è un mercato locale).
+
+---
+
+## Generazione (Higgsfield · Seedance 2.0 Mini · 9:16 · 15s · 720p · audio nativo)
+
+| Ad | Job ID |
+|---|---|
+| 1 Il nipote | 39c27707-98ed-47c0-a8ed-d89bb9f1f648 |
+| 2 Mezzanotte | 642bd678-2f59-418c-a639-86d8785b6261 |
+| 3 Dove sono finiti i soldi? | 3bd0692e-4e6d-4bf6-a6a8-a7dea877d080 |
+| 4 12 specialisti, un prezzo | adf5b833-035b-4cfb-bc10-bb60f202bc27 |
+| 5 Posto ogni giorno, zero clienti | 4a03275b-c469-45e2-b6d2-d02b9e8c1b21 |
+| 6 Il concorrente di fronte | 2612e24f-e537-4454-a484-42b4d8a445e4 |
+| 7 Il boost | aa462ba3-322f-4d86-9abc-8cf060f17e20 |
+| 8 Da brief a strategia | 60d1f251-b034-41c0-ab39-572ae18a5550 |
+| 9 Il ristorante vuoto | 0d66f9fd-f103-4fb3-9287-f519d09172e9 |
+| 10 Le agenzie grandi non ti rispondono | ad5edec2-8bd1-4474-baa3-0b9fb8f6cdc4 |
