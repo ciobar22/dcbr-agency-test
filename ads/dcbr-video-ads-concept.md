@@ -114,15 +114,24 @@ di un'agenzia piccola, trasparente sui numeri.
 
 ## Generazione (Higgsfield · Seedance 2.0 Mini · 9:16 · 15s · 720p · audio nativo)
 
-| Ad | Job ID |
-|---|---|
-| 1 Il nipote | 39c27707-98ed-47c0-a8ed-d89bb9f1f648 |
-| 2 Mezzanotte | 642bd678-2f59-418c-a639-86d8785b6261 |
-| 3 Dove sono finiti i soldi? | 3bd0692e-4e6d-4bf6-a6a8-a7dea877d080 |
-| 4 12 specialisti, un prezzo | adf5b833-035b-4cfb-bc10-bb60f202bc27 |
-| 5 Posto ogni giorno, zero clienti | 4a03275b-c469-45e2-b6d2-d02b9e8c1b21 |
-| 6 Il concorrente di fronte | 2612e24f-e537-4454-a484-42b4d8a445e4 |
-| 7 Il boost | aa462ba3-322f-4d86-9abc-8cf060f17e20 |
-| 8 Da brief a strategia | 60d1f251-b034-41c0-ab39-572ae18a5550 |
-| 9 Il ristorante vuoto | 0d66f9fd-f103-4fb3-9287-f519d09172e9 |
-| 10 Le agenzie grandi non ti rispondono | ad5edec2-8bd1-4474-baa3-0b9fb8f6cdc4 |
+| Ad | Job ID | Video |
+|---|---|---|
+| 1 Il nipote | 39c27707-98ed-47c0-a8ed-d89bb9f1f648 | [mp4](https://d8j0ntlcm91z4.cloudfront.net/user_34cwSgfXDF2KleVIDD3v8ZMNCWU/hf_20260930_233112_39c27707-98ed-47c0-a8ed-d89bb9f1f648.mp4) |
+| 2 Mezzanotte | 642bd678-2f59-418c-a639-86d8785b6261 | [mp4](https://d8j0ntlcm91z4.cloudfront.net/user_34cwSgfXDF2KleVIDD3v8ZMNCWU/hf_20260930_233111_642bd678-2f59-418c-a639-86d8785b6261.mp4) |
+| 3 Dove sono finiti i soldi? | 3bd0692e-4e6d-4bf6-a6a8-a7dea877d080 | [mp4](https://d8j0ntlcm91z4.cloudfront.net/user_34cwSgfXDF2KleVIDD3v8ZMNCWU/hf_20260930_233112_3bd0692e-4e6d-4bf6-a6a8-a7dea877d080.mp4) |
+| 4 12 specialisti, un prezzo | adf5b833-035b-4cfb-bc10-bb60f202bc27 | [mp4](https://d8j0ntlcm91z4.cloudfront.net/user_34cwSgfXDF2KleVIDD3v8ZMNCWU/hf_20260930_233123_adf5b833-035b-4cfb-bc10-bb60f202bc27.mp4) |
+| 5 Posto ogni giorno, zero clienti | 4a03275b-c469-45e2-b6d2-d02b9e8c1b21 | [mp4](https://d8j0ntlcm91z4.cloudfront.net/user_34cwSgfXDF2KleVIDD3v8ZMNCWU/hf_20260930_233112_4a03275b-c469-45e2-b6d2-d02b9e8c1b21.mp4) |
+| 6 Il concorrente di fronte | 2612e24f-e537-4454-a484-42b4d8a445e4 | [mp4](https://d8j0ntlcm91z4.cloudfront.net/user_34cwSgfXDF2KleVIDD3v8ZMNCWU/hf_20260930_233112_2612e24f-e537-4454-a484-42b4d8a445e4.mp4) |
+| 7 Il boost | aa462ba3-322f-4d86-9abc-8cf060f17e20 | [mp4](https://d8j0ntlcm91z4.cloudfront.net/user_34cwSgfXDF2KleVIDD3v8ZMNCWU/hf_20260930_233112_aa462ba3-322f-4d86-9abc-8cf060f17e20.mp4) |
+| 8 Da brief a strategia | 60d1f251-b034-41c0-ab39-572ae18a5550 | [mp4](https://d8j0ntlcm91z4.cloudfront.net/user_34cwSgfXDF2KleVIDD3v8ZMNCWU/hf_20260930_233123_60d1f251-b034-41c0-ab39-572ae18a5550.mp4) |
+| 9 Il ristorante vuoto | 0d66f9fd-f103-4fb3-9287-f519d09172e9 | [mp4](https://d8j0ntlcm91z4.cloudfront.net/user_34cwSgfXDF2KleVIDD3v8ZMNCWU/hf_20260930_233124_0d66f9fd-f103-4fb3-9287-f519d09172e9.mp4) |
+| 10 Le agenzie grandi non ti rispondono | ad5edec2-8bd1-4474-baa3-0b9fb8f6cdc4 | [mp4](https://d8j0ntlcm91z4.cloudfront.net/user_34cwSgfXDF2KleVIDD3v8ZMNCWU/hf_20260930_233112_ad5edec2-8bd1-4474-baa3-0b9fb8f6cdc4.mp4) |
+
+**Stato:** tutti e 10 completati il 30/09/2026 (720x1280, 15s, audio nativo). Sono anche nella
+libreria Higgsfield dell'account.
+
+### Post-produzione (per ogni video)
+1. Sottotitoli in italiano (CapCut: sottotitoli automatici e correzione a mano)
+2. End card negli ultimi 2 secondi: logo DCBR e CTA "Scrivici in DM"
+3. Controllo del labiale e della pronuncia italiana: il modello mini a volte sbaglia.
+   Se un video non convince, si rigenera solo quello.
