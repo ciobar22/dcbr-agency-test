@@ -8,76 +8,55 @@
  "title": "Pirogoff · Tallinna pidupirukad – ettepanek",
  "order": [
   "cover",
-  "intro",
+  "intro3",
   "revenue",
-  "digital",
-  "market",
-  "benchmark",
-  "competitors",
+  "digital2",
+  "market2",
+  "compet2",
   "prices",
-  "audiences",
-  "opportunity",
-  "where",
-  "what",
+  "opps",
   "campaign",
   "moments",
   "campaign_run",
-  "positioning",
   "directions",
-  "identity_sheet",
   "identity",
   "flavours",
   "collection",
   "shelf",
-  "premium",
   "lineup",
   "formats2",
   "personas2",
   "social2",
   "connect",
-  "channels",
-  "b2b",
-  "ready",
-  "roadmap",
-  "goals",
+  "b2b2",
+  "roadmap2",
+  "goals2",
   "next"
  ],
  "sections": {
   "s1": {
-   "description": "Avamine",
+   "description": "Avamine ja olukord",
    "start": "cover"
   },
   "s2": {
-   "description": "Olukord täna",
-   "start": "intro"
+   "description": "Turg, konkurents ja võimalused",
+   "start": "market2"
   },
   "s3": {
-   "description": "Turg ja konkurents",
-   "start": "market"
-  },
-  "s4": {
-   "description": "Võimalused: kus ja mida",
-   "start": "opportunity"
-  },
-  "s5": {
    "description": "Kampaania „Nagu lapsepõlves“",
    "start": "campaign"
   },
-  "s6": {
+  "s4": {
    "description": "Bränd, pakend ja formaadid",
-   "start": "positioning"
+   "start": "directions"
   },
-  "s7": {
-   "description": "Sotsiaalmeedia ja kogukond",
+  "s5": {
+   "description": "Sotsiaalmeedia ja B2B",
    "start": "social2"
   },
-  "s8": {
-   "description": "Kanalid ja kvaliteet",
-   "start": "channels"
-  },
-  "s9": {
-   "description": "Plaan ja järgmised sammud",
-   "start": "roadmap"
+  "s6": {
+   "description": "Plaan",
+   "start": "roadmap2"
   }
  },
  "faces": {

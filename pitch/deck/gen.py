@@ -81,14 +81,14 @@ slide("company", f'''{head(T('Olukord täna','Where we stand'), T('Väike meesko
 <p style="font-size:30px;line-height:1.45;width:1500px">{T('Kõik, mida tugev bränd vajab, on juba olemas: retseptid, tootmine ja rahulolevad kliendid. Järgmine samm on muuta see nähtavaks ja kättesaadavaks.','Everything a strong brand needs is already here: recipes, production and happy customers. The next step is to make it visible and easy to buy.')}</p>''')
 
 # 5 REVENUE CHART
-vals=[("2019",0.06),("2020",0),("2021",59.3),("2022",168.0),("2023",164.8),("2024",133.5),("2025",132.3)]
+vals=[("2021",59.3),("2022",168.0),("2023",164.8),("2024",133.5),("2025",132.3)]
 bars=""
 for y,v in vals:
     h=max(4,int(v/168*360)); c = BLUE if y=="2022" else "#C9B79C"
     lab = f"{v:.0f}k" if v>=1 else "–"
     bars += (f'<div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:end;gap:12px">'
              f'<p style="font-size:26px;font-weight:700;color:{HEAD}">{lab}</p>'
-             f'<div style="width:120px;height:{h}px;background:{c};border-radius:10px 10px 0 0"></div>'
+             f'<div style="width:160px;height:{h}px;background:{c};border-radius:10px 10px 0 0"></div>'
              f'<p style="font-size:26px;color:{BODY}">{y}</p></div>')
 slide("revenue", f'''{head(T('Müügitulu 2019–2025, €','Revenue 2019–2025, €'), T('2022 tõestas: nõudlus on olemas.','2022 proved it: the demand is there.'))}
 <div style="display:flex;gap:64px;align-items:end">
@@ -381,15 +381,12 @@ for k,sid in enumerate(order):
 deck={"v":4,"createdOnFiles":{"v":1,"at":"2026-10-01T12:00:00Z"},"lists":"css",
  "title":T("Pirogoff · Tallinna pidupirukad – ettepanek","Pirogoff · Tallinn feast pies – proposal"),
  "order":order,
- "sections":{"s1":{"description":T("Avamine","Opening"),"start":"cover"},
-             "s2":{"description":T("Olukord täna","Where we stand"),"start":"intro"},
-             "s3":{"description":T("Turg ja konkurents","Market and competition"),"start":"market"},
-             "s4":{"description":T("Võimalused: kus ja mida","Opportunities: where and what"),"start":"opportunity"},
-             "s5":{"description":T("Kampaania „Nagu lapsepõlves“","Campaign “Just like when you were little”"),"start":"campaign"},
-             "s6":{"description":T("Bränd, pakend ja formaadid","Brand, packaging and formats"),"start":"positioning"},
-             "s7":{"description":T("Sotsiaalmeedia ja kogukond","Social media and community"),"start":"social2"},
-             "s8":{"description":T("Kanalid ja kvaliteet","Channels and quality"),"start":"channels"},
-             "s9":{"description":T("Plaan ja järgmised sammud","Plan and next steps"),"start":"roadmap"}},
+ "sections":{"s1":{"description":T("Avamine ja olukord","Opening and where we stand"),"start":"cover"},
+             "s2":{"description":T("Turg, konkurents ja võimalused","Market, competition and opportunities"),"start":"market2"},
+             "s3":{"description":T("Kampaania „Nagu lapsepõlves“","Campaign “Just like when you were little”"),"start":"campaign"},
+             "s4":{"description":T("Bränd, pakend ja formaadid","Brand, packaging and formats"),"start":"directions"},
+             "s5":{"description":T("Sotsiaalmeedia ja B2B","Social media and B2B"),"start":"social2"},
+             "s6":{"description":T("Plaan","Plan"),"start":"roadmap2"}},
  "faces":{"fraunces":{"family":"Fraunces","href":"https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400..700;1,400..700&display=swap"},
           "dm-sans":{"family":"DM Sans","href":"https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap"}},
  "designSystems":[]}

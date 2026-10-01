@@ -69,7 +69,7 @@ addslide("moments", sec("moments", f'''{head(T('Kampaania · kolm hetke','Campai
 <div style="display:flex;gap:32px">
 {moment('12', T('Pidu','The celebration'), T('Igal peol on pirukas.','Every party has a pie.'), T('Sünnipäev, jõulud, jaanipäev – laual on Pirogoff, nagu alati.','Birthdays, Christmas, Midsummer – Pirogoff is on the table, as always.'))}
 {moment('03', T('Pere','The family'), T('Iga perekokkutulek.','Every family gathering.'), T('Sama maitse, mis vanaema laual. Nüüd sinu laual.','The same taste as on grandma’s table. Now on yours.'))}
-{moment('06', T('Õhtu','The evening'), T('Väsinud? Pirukas ootab.','Tired? A pie is waiting.'), T('Ei tea, mida süüa? 18 minutit ja tunned end kodus ja armastatuna.','Don’t know what to eat? 18 minutes and you feel at home and loved.'))}
+{moment('06', T('Õhtu','The evening'), T('Väsinud? Pirukas ootab.','Tired? A pie is waiting.'), T('Ei tea, mida süüa? Mõne minutiga on soe pirukas laual – ja tunned end kodus ja armastatuna.','Don’t know what to eat? A few minutes and a warm pie is on the table – and you feel at home and loved.'))}
 </div>''', extra=";gap:36px"))
 
 # CAMPAIGN EXECUTION
@@ -77,7 +77,7 @@ addslide("campaign_run", sec("campaign_run", f'''{head(T('Kampaania · kus see e
 <div style="display:flex;gap:48px;align-items:start">
 <div style="flex:1;display:flex;flex-direction:column;gap:18px">
 {card(T('Karbi kaane sees','Inside the lid'), T('„Tere tulemast koju.“ + kaart „Kelle laud see on?“ – jaga oma pidulauda.','“Welcome home.” + a card “Whose table is this?” – share your feast table.'))}
-{card(T('Balti jaam ja trammid','Balti jaam and trams'), T('Õhtune plakat: „Väsinud? Pirukas ootab. 18 min.“','Evening poster: “Tired? A pie is waiting. 18 min.”'))}
+{card(T('Trammid ja bussipeatused','Trams and bus stops'), T('Õhtune plakat: „Väsinud? Pirukas ootab.“','Evening poster: “Tired? A pie is waiting.”'))}
 {card(T('Sotsiaalmeedia ja Wolt','Social and Wolt'), T('Lugude sari vanavanematest ja peolaudadest, õhtune Wolti pakkumine kell 18.','Story series on grandparents and feast tables, a 6 pm Wolt offer.'))}
 </div>
 {img('07', 620, 620, 24, T('Porgandipirukas karbis','Carrot pie in its box'))}
@@ -107,7 +107,7 @@ addslide("connect", sec("connect", f'''{head(T('Formaadid, mis loovad sidet','Fo
 <div style="display:grid;grid-template-columns:repeat(3, 1fr);gap:20px">
 {fmt2('01', T('„Vanaema retsept“','“Grandma’s recipe”'), T('Vanavanemad räägivad oma pirukamälestusi kaamerasse.','Grandparents share their pie memories on camera.'), LBLUE)}
 {fmt2('02', T('„Kelle laud see on?“','“Whose table is this?”'), T('Kliendid saadavad pidulaua fotod – parim saab kuu pirukad.','Customers send feast-table photos – the best wins a month of pies.'), "#E9A58F")}
-{fmt2('03', T('„Õhtune päästja“','“The evening rescue”'), T('Kell 18: väsinud? AIR fritüüris, 18 minutit, õhtusöök valmis.','6 pm: tired? AIR in the fryer, 18 minutes, dinner is ready.'), "#C9D99A")}
+{fmt2('03', T('„Õhtune päästja“','“The evening rescue”'), T('Kell 18: väsinud? AIR fritüüri, mõne minutiga on õhtusöök valmis.','6 pm: tired? AIR into the fryer, dinner is ready in minutes.'), "#C9D99A")}
 {fmt2('04', T('„POV: pirukas sünnib“','“POV: a pie is born”'), T('Kell 5 Tiskre köögis – tainas, täidis, punutis, ahi.','5 am in the Tiskre kitchen – dough, filling, braid, oven.'), LBLUE)}
 {fmt2('05', T('„Pirukas testis“','“Pie on test”'), T('Ausad arvustused kohalikelt loojatelt ja klientidelt.','Honest reviews by local creators and customers.'), "#E9A58F")}
 {fmt2('06', T('„Pühade kalender“','“Holiday calendar”'), T('Iga püha oma pirukas – eeltellimuse loendur.','A pie for every holiday – a pre-order countdown.'), "#C9D99A")}
@@ -169,12 +169,12 @@ addslide("formats2", sec("formats2", f"""{head(T('Formaadid','Formats'), T('Piru
 <div style="display:flex;gap:20px">
 {fcard('go','GO','120 g','3,50 €',T('Käes söödav, paberümbrises. Tudengile ja reisijale.','Hand-held, in a paper sleeve. For students and commuters.'),TERRA)}
 {fcard('tukk','TÜKK',T('viil','slice'),'2,90 €',T('Viil karbis kohvikutele ja letile.','A boxed slice for cafés and counters.'),"#5F7D50")}
-{fcard('air','AIR','350 g',T('külmutatud','frozen'),T('Õhufritüüris 18 min. Sügavkülmast õhtusöögiks.','18 min in the air fryer. Freezer to dinner.'),BLUE)}
+{fcard('air','AIR','350 g',T('külmutatud','frozen'),T('Õhufritüüris mõne minutiga. Sügavkülmast õhtusöögiks.','A few minutes in the air fryer. Freezer to dinner.'),BLUE)}
 {fcard('klassik','KLASSIK','1 kg',T('värske või külm.','fresh or frozen'),T('Pidulaua pirukas – küpseta kodus lõpuni.','The feast pie – finish baking at home.'),"#6B4A2B")}
 </div>""", bg=ALT, extra=";gap:36px"))
 
 # PERSONAS with student image
-pp2=[(T('Tudeng','Student'),T('GO teel loengusse, alla 4 €.','GO on the way to class, under €4.')),(T('Pendelrändaja','Commuter'),T('Hommikune pirukas Balti jaamas.','A morning pie at Balti jaam.')),(T('Vanaema ja lapselaps','Grandma and grandchild'),T('Kaks GO-d jalutuskäigul.','Two GOs on a walk.')),(T('Pere','Family'),T('KLASSIK pühapäeva õhtusöögiks.','KLASSIK for Sunday dinner.')),(T('Kontor','Office'),T('Pirukakast koosolekuks.','A pie box for the meeting.')),(T('Turist','Tourist'),T('Kohalik maitse kingikarbis.','A local taste in a gift box.'))]
+pp2=[(T('Tudeng','Student'),T('GO teel loengusse, alla 4 €.','GO on the way to class, under €4.')),(T('Pendelrändaja','Commuter'),T('Hommikune GO teel tööle.','A morning GO on the way to work.')),(T('Vanaema ja lapselaps','Grandma and grandchild'),T('Kaks GO-d jalutuskäigul.','Two GOs on a walk.')),(T('Pere','Family'),T('KLASSIK pühapäeva õhtusöögiks.','KLASSIK for Sunday dinner.')),(T('Kohvikukülastaja','Café guest'),T('Viil kohvi kõrvale.','A slice with their coffee.')),(T('Turist','Tourist'),T('Kohalik maitse kingikarbis.','A local taste in a gift box.'))]
 def pcard(a,b):
     return (f'<div style="display:flex;flex-direction:column;gap:8px;background:#FBF7F0;border:1px solid #E0D3BE;border-radius:16px;padding:24px">'
             f'<h3 style="{FD};font-size:34px;font-weight:600;color:{HEAD}">{a}</h3><p style="font-size:26px;line-height:1.35">{b}</p></div>')
@@ -184,11 +184,113 @@ addslide("personas2", sec("personas2", f"""{head(T('Kellele','Who it is for'), T
 <div style="flex:1;display:grid;grid-template-columns:repeat(2, 1fr);gap:20px">{''.join(pcard(a,b) for a,b in pp2)}</div>
 </div>""", extra=";gap:36px"))
 
-FINAL=["cover","intro","revenue","digital",
- "market","benchmark","competitors","prices","audiences",
- "opportunity","where","what",
+
+# ===== v4 compact slides =====
+addslide("intro3", sec("intro3", f'''{head(T('Pirogoff täna','Pirogoff today'), T('Pirukad, mida armastatakse.<br>Nüüd on aeg, et neid leitaks.','Pies people love.<br>Now it is time to be found.'))}
+<div style="display:flex;gap:48px;align-items:start">
+{img('01b', 720, 540, 24, T('Kana ja puravikuga pirukas','Chicken and porcini pie'))}
+<div style="flex:1;display:grid;grid-template-columns:repeat(2, 1fr);gap:24px">
+{big('13 / 13', T('Facebooki arvustust soovitavad – „nagu vanaema tehtud“','Facebook reviews recommend it – “like grandma made”'), BLUE)}
+{big('31+', T('käsitsi tehtud pirukat, küpsetatud iga päev Tiskres','handmade pies, baked daily in Tiskre'), TERRA)}
+{big('4', T('müügiletti Rimi ja Prisma hüpermarketites + e-pood ja Wolt','counters in Rimi and Prisma hypermarkets + online shop and Wolt'), HEAD)}
+{big('2023', T('viimane Instagrami postitus – aeg uuesti alustada','your last Instagram post – time to start again'), "#9C1449")}
+</div></div>'''))
+
+addslide("digital2", sec("digital2", f'''{head(T('Kus on kasv','Where the growth is'), T('Iga kanal on täna võimalus.','Every channel is an opportunity today.'))}
+<table style="font-size:28px;color:{BODY};width:1664px">
+<tr><th style="width:22%">{T('Kanal','Channel')}</th><th style="width:28%">{T('Täna','Today')}</th><th style="width:50%">{T('Võimalus','Opportunity')}</th></tr>
+<tr><td>Instagram</td><td>183 · {T('viimane postitus 2023','last post 2023')}</td><td><b><span style="color:{BLUE}">{T('3 videoformaati, 3–4 postitust nädalas','3 video formats, 3–4 posts a week')}</span></b></td></tr>
+<tr style="background:#FBF7F0"><td>Google Maps</td><td>0 {T('arvustust','reviews')}</td><td><b><span style="color:{BLUE}">{T('Profiil igale letile + arvustuskaart karbis','A profile per counter + review card in the box')}</span></b></td></tr>
+<tr><td>Wolt / Bolt</td><td>{T('Wolt ilma hinnanguteta, Bolt puudub','Wolt without ratings, no Bolt')}</td><td><b><span style="color:{BLUE}">{T('Fotod, hinnangud, Bolt Food avada','Photos, ratings, switch on Bolt Food')}</span></b></td></tr>
+<tr style="background:#FBF7F0"><td>{T('Koduleht','Website')}</td><td>{T('1. koht „pirukad Tallinn“','#1 for “pirukad Tallinn”')}</td><td><b><span style="color:{BLUE}">{T('Inglise keel + „tellimine“ ja „kohaletoimetamine“','English + “order” and “delivery” searches')}</span></b></td></tr>
+<tr><td>B2B</td><td>{T('puudub','none yet')}</td><td><b><span style="color:{TERRA}">{T('Kohvikud ja supermarketid – suurim kasvuallikas','Cafés and supermarkets – the biggest growth source')}</span></b></td></tr>
+</table>''', bg=ALT))
+
+def aud(t,b): return (f'<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#FBF7F0;border:1px solid #E0D3BE;border-radius:16px;padding:28px">'
+    f'<h3 style="{FD};font-size:34px;font-weight:600;color:{HEAD}">{t}</h3><p style="font-size:26px;line-height:1.35">{b}</p></div>')
+addslide("market2", sec("market2", f'''{head(T('Turg ja publik','Market and audience'), T('Suur linn, kolm publikut.','A big city, three audiences.'))}
+<div style="display:flex;gap:48px">
+{big('460 584', T('elanikku Tallinnas','residents in Tallinn'), HEAD)}
+{big('3,42 mln', T('välisturisti aastas','foreign visitors a year'), BLUE)}
+{big('2 488 €', T('keskmine brutopalk Harjumaal','average gross wage, Harju'), TERRA)}
+</div>
+<div style="display:flex;gap:24px">
+{aud(T('Püsikliendid','Regulars'), T('Venekeelsed tallinlased (~34%), kes tunnevad pirogi.','Russian-speaking locals (~34%) who know the pirog.'))}
+{aud(T('Eestlased','Estonians'), T('Pirukas on ka eesti traditsioon – eesti keel esikohal.','The pirukas is Estonian too – Estonian first.'))}
+{aud(T('Turistid','Tourists'), T('Kohalik maitse ja ilus karp kaasa võtmiseks.','A local taste and a beautiful box to take home.'))}
+</div>''', extra=";gap:40px"))
+
+addslide("compet2", sec("compet2", f'''{head(T('Konkurents','Competition'), T('Nõudlus on tõestatud. Koht on vaba.','Demand is proven. The space is free.'))}
+<div style="display:flex;gap:48px">
+<div style="width:620px;display:flex;flex-direction:column;gap:16px;background:#FBF7F0;border:1px solid #E0D3BE;border-radius:20px;padding:40px">
+<p style="font-size:24px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:{FOOT}">Nikolay · {T('sama toode, 30–38 €/kg','same product, €30–38/kg')}</p>
+<p style="{FD};font-size:80px;font-weight:600;line-height:1;color:{TERRA}">17 828</p><p style="font-size:28px">{T('hinnangut Bolt Foodis','ratings on Bolt Food')}</p>
+<p style="{FD};font-size:80px;font-weight:600;line-height:1;color:{TERRA}">1 981</p><p style="font-size:28px">{T('arvustust Google’is','reviews on Google')}</p>
+</div>
+<table style="font-size:28px;color:{BODY};width:996px">
+<tr><th style="width:44%">{T('Ettevõte','Company')}</th><th style="width:56%">{T('Käive · fookus','Revenue · focus')}</th></tr>
+<tr><td>Eesti Pagar</td><td>106,8 mln € · {T('tööstuslik','industrial')}</td></tr>
+<tr style="background:#FBF7F0"><td>Leibur</td><td>29,9 mln € · {T('leib, jaekett','bread, retail')}</td></tr>
+<tr><td>Pagaripoisid</td><td>3,55 mln € · {T('9 kohvikut','9 cafés')}</td></tr>
+<tr style="background:#FBF7F0"><td>Nikolay, Nostalgia</td><td>{T('kodused pirukad tellimisel','homemade pies to order')}</td></tr>
+</table></div>
+<p style="font-size:28px;line-height:1.45">{T('Keegi ei oma veel positsiooni „käsitsi tehtud pidupirukas igas formaadis“.','Nobody yet owns “handmade feast pie in every format”.')}</p>''', bg=ALT))
+
+def opp(icon, t, b):
+    return (f'<div style="display:flex;gap:20px;align-items:start;background:#FBF7F0;border:1px solid #E0D3BE;border-radius:16px;padding:28px">'
+            f'<x-icon name="{icon}" style="color:{BLUE};width:52px;height:52px"></x-icon>'
+            f'<div style="flex:1;display:flex;flex-direction:column;gap:6px"><h3 style="{FD};font-size:34px;font-weight:600;color:{HEAD}">{t}</h3><p style="font-size:26px;line-height:1.35">{b}</p></div></div>')
+addslide("opps", sec("opps", f'''{head(T('Võimalused','Opportunities'), T('Kasv tuleb B2B-st ja uutest formaatidest.','Growth comes from B2B and new formats.'))}
+<div style="display:grid;grid-template-columns:repeat(2, 1fr);gap:20px">
+{opp('Users', T('Kohvikud ja supermarketid','Cafés and supermarkets'), T('Viilud, GO ja KLASSIK kohalike tootjate riiulil.','Slices, GO and KLASSIK on the local producers’ shelf.'))}
+{opp('Home', T('Külmutatud sari','Frozen range'), T('AIR ja KLASSIK: supermarketi sügavkülm ja Wolt Market.','AIR and KLASSIK: supermarket freezer and Wolt Market.'))}
+{opp('Star', T('Kingikarp','Gift box'), T('Turistidele: sadam ja lennujaam, 11,5 mln reisijat.','For tourists: port and airport, 11.5 M passengers.'))}
+{opp('Clock', T('Pühade sari','Holiday range'), T('Jõulud, lihavõtted, jaanipäev – eeltellimused.','Christmas, Easter, Midsummer – pre-orders.'))}
+{opp('CheckCircle', T('Nädala pirukas','Pie of the week'), T('Tellimus: igal reedel uus maitse koju.','Subscription: a new flavour home every Friday.'))}
+{opp('Globe', T('Soome ja Baltikum','Finland and the Baltics'), T('„Northern Feast Pies“ järgmise sammuna.','“Northern Feast Pies” as the next step.'))}
+</div>''', extra=";gap:36px"))
+
+addslide("b2b2", sec("b2b2", f'''{head('B2B', T('Pirogoff igas kohvikus ja supermarketis.','Pirogoff in every café and supermarket.'))}
+<table style="font-size:28px;color:{BODY};width:1664px">
+<tr><th style="width:30%">{T('Klient','Buyer')}</th><th style="width:40%">{T('Mida pakume','What we offer')}</th><th style="width:30%">{T('Tarne','Delivery')}</th></tr>
+<tr><td>{T('Kohvikud ja kohvikuketid','Cafés and café chains')}</td><td>{T('Soolased TÜKK-viilud ja GO','Savoury TÜKK slices and GO')}</td><td>{T('Iga päev, jahutatud','Daily, chilled')}</td></tr>
+<tr style="background:#FBF7F0"><td>{T('Supermarketid (Selver, Coop, Rimi, Prisma)','Supermarkets (Selver, Coop, Rimi, Prisma)')}</td><td>{T('Kohalike tootjate riiul: viilud, KLASSIK, AIR','Local producers’ shelf: slices, KLASSIK, AIR')}</td><td>{T('2–3× nädalas / külmutatult','2–3× a week / frozen')}</td></tr>
+<tr><td>Wolt Market</td><td>{T('AIR ja KLASSIK külmutatult','AIR and KLASSIK frozen')}</td><td>{T('Kord nädalas','Weekly')}</td></tr>
+</table>
+<div style="display:flex;gap:24px">
+{big('~215 €', T('laborianalüüs retsepti kohta (LABRIS)','lab analysis per recipe (LABRIS)'), BLUE)}
+{big('2–4 p', T('säilivus jahutatult – või külmutatult','shelf life chilled – or frozen'), TERRA)}
+{big('ET + GS1', T('eestikeelne märgistus ja vöötkood','Estonian labels and barcode'), HEAD)}
+</div>''', bg=ALT))
+
+ph2=[(T('0–30 päeva','0–30 days'),T('Korda','Tidy up'),T('Google’i profiilid, Bolt Food, Wolt, kõik sotsiaalmeedia lehed, koduleht.','Google profiles, Bolt Food, Wolt, every social page, website.')),
+    (T('1–3 kuud','1–3 months'),T('Testi','Test'),T('Viilud ja GO olemasolevatel lettidel. Balti Jaama Turu analüüs.','Slices and GO at the existing counters. Balti Jaama Turg analysis.')),
+    (T('3–6 kuud','3–6 months'),T('B2B','B2B'),T('Kohvikud ja supermarketid, uus pakend, labor ja märgistus.','Cafés and supermarkets, new packaging, lab and labels.')),
+    (T('6–12 kuud','6–12 months'),T('Kasva','Grow'),T('Külmutatud sari. Kesklinna minipood ainult siis, kui B2B seda vajab.','Frozen range. A central mini-shop only if B2B needs it.'))]
+rm2=""
+for i,(a,b,c) in enumerate(ph2):
+    col=[TERRA,"#B85F1C",BLUE,"#5F7D50"][i]
+    rm2 += (f'<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FBF7F0;border:1px solid #E0D3BE;border-top:12px solid {col};border-radius:20px;padding:32px">'
+           f'<p style="font-size:24px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:{col}">{a}</p>'
+           f'<h3 style="{FD};font-size:44px;font-weight:600;color:{HEAD}">{b}</h3><p style="font-size:26px;line-height:1.4">{c}</p></div>')
+addslide("roadmap2", sec("roadmap2", f'''{head(T('Teekaart','Roadmap'), T('Alustame olemasolevatest punktidest.','We start from the existing points.'))}
+<div style="display:flex;gap:20px">{rm2}</div>
+<p style="font-size:28px;line-height:1.45;width:1560px">{T('Kui B2B töötab, pole kallist kesklinna asukohta vaja: vähem üüri, rohkem raha turundusse ja tootmisse.','If B2B works, an expensive central location is not needed: less rent, more money for marketing and production.')}</p>'''))
+
+addslide("goals2", sec("goals2", f'''{head(T('12 kuu eesmärgid','12-month goals'), T('Kuhu jõuame aastaga.','Where we get to in a year.'))}
+<div style="display:flex;gap:48px">
+<div style="flex:3;display:grid;grid-template-columns:repeat(2, 1fr);gap:24px">
+{big('165 000 €', T('käive – tagasi 2022. aasta tasemele ja edasi','revenue – back to the 2022 level and beyond'), BLUE)}
+{big('300+', T('hinnangut Woltis ja Bolt Foodis','ratings on Wolt and Bolt Food'), TERRA)}
+{big('5–10', T('püsivat B2B klienti','regular B2B clients'), HEAD)}
+{big('6', T('aktiivset sotsiaalmeedia kanalit','active social channels'), "#5F7D50")}
+</div>
+<div style="flex:2;display:flex;flex-direction:column;gap:16px;background:#FBF7F0;border:1px solid #E0D3BE;border-radius:20px;padding:36px">
+<h3 style="{FD};font-size:40px;font-weight:600;color:{HEAD}">{T('Toetused','Grants')}</h3>
+<ul style="font-size:26px;line-height:1.5"><li>{T('EIS arendusvautšer kuni 35 000 €','EIS development voucher up to €35,000')}</li><li>{T('PRIA toiduainetööstus 15–50%','PRIA food industry 15–50%')}</li><li>{T('Tallinna digitoetus kuni 6 000 €/a','Tallinn digital grant up to €6,000/yr')}</li></ul>
+</div></div>''', bg=ALT))
+
+FINAL=["cover","intro3","revenue","digital2","market2","compet2","prices","opps",
  "campaign","moments","campaign_run",
- "positioning","directions","identity_sheet","identity","flavours","collection","shelf","premium","lineup","formats2","personas2",
- "social2","connect",
- "channels","b2b","ready",
- "roadmap","goals","next"]
+ "directions","identity","flavours","collection","shelf","lineup","formats2","personas2",
+ "social2","connect","b2b2","roadmap2","goals2","next"]
