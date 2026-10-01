@@ -32,3 +32,8 @@ I file sono ospitati su Higgsfield (CDN). L'ambiente di questa sessione non può
 | 26 | Finestre sagomate (P7) | `3d1c38ac-590c-43ce-8ae8-59438b03b9e5` | [![](https://d8j0ntlcm91z4.cloudfront.net/user_34cwSgfXDF2KleVIDD3v8ZMNCWU/hf_20261001_103154_3d1c38ac-590c-43ce-8ae8-59438b03b9e5_min.webp)](https://d8j0ntlcm91z4.cloudfront.net/user_34cwSgfXDF2KleVIDD3v8ZMNCWU/hf_20261001_103154_3d1c38ac-590c-43ce-8ae8-59438b03b9e5.png) |
 | 27 | Finestre sagomate (P7) | `828cc95f-2bb8-4fe1-8e03-f78498185805` | [![](https://d8j0ntlcm91z4.cloudfront.net/user_34cwSgfXDF2KleVIDD3v8ZMNCWU/hf_20261001_103157_828cc95f-2bb8-4fe1-8e03-f78498185805_min.webp)](https://d8j0ntlcm91z4.cloudfront.net/user_34cwSgfXDF2KleVIDD3v8ZMNCWU/hf_20261001_103157_828cc95f-2bb8-4fe1-8e03-f78498185805.png) |
 | 28 | Freezer libreria (P8) | `40f40d89-e5b3-4061-b8e9-9336fa4c6377` | [![](https://d8j0ntlcm91z4.cloudfront.net/user_34cwSgfXDF2KleVIDD3v8ZMNCWU/hf_20261001_103209_40f40d89-e5b3-4061-b8e9-9336fa4c6377_min.webp)](https://d8j0ntlcm91z4.cloudfront.net/user_34cwSgfXDF2KleVIDD3v8ZMNCWU/hf_20261001_103209_40f40d89-e5b3-4061-b8e9-9336fa4c6377.png) |
+
+## Versioni da presentare alla cliente (confronto)
+Per i gusti Nº 01 e Nº 02 si tengono tutte le versioni generate, da mostrare in confronto alla cliente:
+- **Nº 01 Kana & puravik:** `7c263476`, `849f562e`, `d1bb6eab`
+- **Nº 02 Sealiha & kapsas:** `cfc49dcb`, `842b77a0`, `6fe10eac`
