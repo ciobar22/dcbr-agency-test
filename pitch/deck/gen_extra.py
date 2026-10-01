@@ -290,7 +290,36 @@ addslide("goals2", sec("goals2", f'''{head(T('12 kuu eesmärgid','12-month goals
 <ul style="font-size:26px;line-height:1.5"><li>{T('EIS arendusvautšer kuni 35 000 €','EIS development voucher up to €35,000')}</li><li>{T('PRIA toiduainetööstus 15–50%','PRIA food industry 15–50%')}</li><li>{T('Tallinna digitoetus kuni 6 000 €/a','Tallinn digital grant up to €6,000/yr')}</li></ul>
 </div></div>''', bg=ALT))
 
+
+def focus(sid, k, n, name, tag, facts, rows, col):
+    fr="".join(f'<div style="display:flex;flex-direction:column;gap:4px"><p style="font-size:24px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:{col}">{a}</p><p style="font-size:28px;line-height:1.4;color:{BODY}">{b}</p></div>' for a,b in rows)
+    addslide(sid, f"""<section id="{sid}" data-transition="fade" style="background:{OAT};color:{BODY};font-family:'DM Sans', Arial, sans-serif;padding:128px 128px 160px 1000px;display:flex;flex-direction:column;justify-content:center;gap:28px">
+<img src="{IMG[k]}" alt="{name}" style="position:absolute;left:0px;top:0px;width:900px;height:1080px;object-fit:cover">
+<p style="font-size:24px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:{col}">{T('Formaat','Format')} {n} / 4</p>
+<h2 style="{FD};font-size:120px;font-weight:600;line-height:1;color:{HEAD}">{name}</h2>
+<p style="{FD};font-size:44px;font-style:italic;line-height:1.2;color:{HEAD}">{tag}</p>
+<p style="font-size:32px;font-weight:700;color:{col}">{facts}</p>
+<div style="display:flex;flex-direction:column;gap:20px">{fr}</div>
+{footer(0)}</section>""")
+
+focus("f_go","go",1,"GO",T('Pirukas, mis mahub pihku.','A pie that fits in your hand.'),'120 g · 3,50 €',
+ [(T('Kellele','For whom'),T('Tudengid, tööle minejad, vanaema ja lapselaps jalutuskäigul.','Students, people on the way to work, grandma and grandchild on a walk.')),
+  (T('Kus','Where'),T('Olemasolevad letid, kohvikud, Wolt ja Bolt Food.','Existing counters, cafés, Wolt and Bolt Food.')),
+  (T('Miks','Why'),T('Väike ostukogus toob uued kliendid, kes terve piruka järele ei tuleks.','A small purchase brings new customers who would not buy a whole pie.'))],TERRA)
+focus("f_tukk","tukk",2,"TÜKK",T('Proovi enne, kui ostad terve.','Try it before you buy a whole one.'),T('viil · 2,90 €','slice · €2.90'),
+ [(T('Kellele','For whom'),T('Kohvikukülastaja, kes võtab kohvi kõrvale midagi soolast.','The café guest who wants something savoury with their coffee.')),
+  (T('Kus','Where'),T('Kohvikud ja kohvikuketid, supermarketi valmistoidu riiul.','Cafés and café chains, the supermarket ready-food shelf.')),
+  (T('Miks','Why'),T('Lihtsaim B2B toode: karbis, sildiga, iga päev värske.','The easiest B2B product: boxed, labelled, fresh every day.'))],"#5F7D50")
+focus("f_air","air",3,"AIR",T('Sügavkülmast õhtusöögiks.','From the freezer to dinner.'),T('350 g · külmutatud · õhufritüürile','350 g · frozen · for the air fryer'),
+ [(T('Kellele','For whom'),T('Väsinud õhtu, kui ei tea, mida süüa – soe pirukas mõne minutiga.','The tired evening when you don’t know what to eat – a warm pie in minutes.')),
+  (T('Kus','Where'),T('Supermarketi sügavkülm ja Wolt Market.','The supermarket freezer and Wolt Market.')),
+  (T('Miks','Why'),T('Pikk säilivus, vähem raiskamist, tarne kord nädalas.','Long shelf life, less waste, weekly delivery.'))],BLUE)
+focus("f_klassik","klassik2",4,"KLASSIK",T('Pidulaua pirukas – küpseta kodus lõpuni.','The feast pie – finish baking at home.'),T('1 kg · värske või külmutatud','1 kg · fresh or frozen'),
+ [(T('Kellele','For whom'),T('Pühad, sünnipäevad, perekokkutulekud.','Holidays, birthdays, family gatherings.')),
+  (T('Kus','Where'),T('E-pood, letid, supermarketi sügavkülm.','Online shop, counters, supermarket freezer.')),
+  (T('Miks','Why'),T('Tänane põhitoode uues elus: ahjust laua peale, soe ja lõhnav.','Today’s core product in a new life: from the oven to the table, warm and fragrant.'))],"#6B4A2B")
+
 FINAL=["cover","intro3","revenue","digital2","market2","compet2","prices","opps",
  "campaign","moments","campaign_run",
- "directions","identity","flavours","collection","shelf","lineup","formats2","personas2",
+ "directions","identity","flavours","collection","shelf","lineup","formats2","f_go","f_tukk","f_air","f_klassik","personas2",
  "social2","connect","b2b2","roadmap2","goals2","next"]
