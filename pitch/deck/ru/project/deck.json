@@ -1,0 +1,74 @@
+{
+ "v": 4,
+ "createdOnFiles": {
+  "v": 1,
+  "at": "2026-10-01T15:00:00Z"
+ },
+ "lists": "css",
+ "title": "Pirogoff · Таллинские праздничные пироги – предложение",
+ "order": [
+  "cover",
+  "intro3",
+  "revenue",
+  "digital2",
+  "market2",
+  "compet2",
+  "opps",
+  "campaign",
+  "moments",
+  "campaign_run",
+  "directions",
+  "identity",
+  "flavours",
+  "collection",
+  "shelf",
+  "lineup",
+  "f_go",
+  "f_tukk",
+  "f_air",
+  "f_klassik",
+  "social2",
+  "connect",
+  "b2b2",
+  "roadmap2",
+  "goals2",
+  "next"
+ ],
+ "sections": {
+  "s1": {
+   "description": "Вступление и текущая ситуация",
+   "start": "cover"
+  },
+  "s2": {
+   "description": "Рынок, конкуренция и возможности",
+   "start": "market2"
+  },
+  "s3": {
+   "description": "Кампания «Как в детстве»",
+   "start": "campaign"
+  },
+  "s4": {
+   "description": "Бренд, упаковка и форматы",
+   "start": "directions"
+  },
+  "s5": {
+   "description": "Соцсети и B2B",
+   "start": "social2"
+  },
+  "s6": {
+   "description": "План",
+   "start": "roadmap2"
+  }
+ },
+ "faces": {
+  "lora": {
+   "family": "Lora",
+   "href": "https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap"
+  },
+  "manrope": {
+   "family": "Manrope",
+   "href": "https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&display=swap"
+  }
+ },
+ "designSystems": []
+}
