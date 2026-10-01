@@ -1,0 +1,78 @@
+{
+ "v": 4,
+ "createdOnFiles": {
+  "v": 1,
+  "at": "2026-10-01T12:00:00Z"
+ },
+ "lists": "css",
+ "title": "Pirogoff · Tallinn feast pies – proposal",
+ "order": [
+  "cover",
+  "story",
+  "name",
+  "company",
+  "revenue",
+  "today",
+  "product",
+  "digital",
+  "market",
+  "benchmark",
+  "competitors",
+  "prices",
+  "audiences",
+  "opportunity",
+  "positioning",
+  "identity",
+  "flavours",
+  "collection",
+  "shelf",
+  "premium",
+  "formats",
+  "personas",
+  "channels",
+  "b2b",
+  "system",
+  "lab",
+  "social",
+  "roadmap",
+  "goals",
+  "next"
+ ],
+ "sections": {
+  "s1": {
+   "description": "Opening: story and name",
+   "start": "cover"
+  },
+  "s2": {
+   "description": "Where we stand",
+   "start": "company"
+  },
+  "s3": {
+   "description": "Market and competition",
+   "start": "market"
+  },
+  "s4": {
+   "description": "Strategy, brand and packaging",
+   "start": "opportunity"
+  },
+  "s5": {
+   "description": "Channels and quality",
+   "start": "channels"
+  },
+  "s6": {
+   "description": "Plan and next steps",
+   "start": "social"
+  }
+ },
+ "faces": {
+  "fraunces": {
+   "family": "Fraunces",
+   "href": "https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400..700;1,400..700&display=swap"
+  },
+  "dm-sans": {
+   "family": "DM Sans",
+   "href": "https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap"
+  }
+ },
+ "designSystems": []
+}
