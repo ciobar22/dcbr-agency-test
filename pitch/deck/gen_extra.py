@@ -129,11 +129,66 @@ addslide("ready", sec("ready", f'''{head(T('B2B valmisolek','B2B readiness'), T(
 <p style="font-size:24px;color:{FOOT}">{T('Hinnad ilma KM-ta, LABRIS','Prices excl. VAT, LABRIS')}</p>
 </div></div>''', bg=ALT))
 
+
+# DIRECTIONS A vs B
+def dircol(tag, name, k1, k2, txt, rec=False):
+    badge = f'<p style="font-size:24px;font-weight:700;color:{LIGHT};background:{BLUE};padding:6px 18px;border-radius:999px">{T("Soovitame","Recommended")}</p>' if rec else ''
+    return (f'<div style="flex:1;display:flex;flex-direction:column;gap:16px">'
+            f'<div style="display:flex;gap:16px;align-items:center"><p style="{FD};font-size:40px;font-weight:600;color:{HEAD}">{tag} · {name}</p>{badge}</div>'
+            f'<div style="display:flex;gap:16px">{img(k1,400,300,16,name)}{img(k2,400,300,16,name)}</div>'
+            f'<p style="font-size:26px;line-height:1.4">{txt}</p></div>')
+addslide("directions", sec("directions", f"""{head(T('Kaks visuaalset suunda','Two visual directions'), T('Pidulik punane-kuld või soe põhjamaine.','Festive red-gold or warm Nordic.'))}
+<div style="display:flex;gap:48px">
+{dircol('A', 'Pidu', 'mbA', 'packA', T('Must karp, kuldsed viljapead, punane kiri. Väga pidulik – sobib jõulu- ja kingiväljaandeks.','Black box, golden wheat, red script. Very festive – ideal for a Christmas and gift edition.'))}
+{dircol('B', T('Põhjamaine','Nordic'), 'mbB', 'packB', T('Kaerakreem, rukkilill, kootud muster. Soe, kohalik, igapäevane – põhisari.','Oat cream, cornflower, woven pattern. Warm, local, everyday – the core range.'), True)}
+</div>""", extra=";gap:32px"))
+
+# IDENTITY SHEET full image
+addslide("identity_sheet", f"""<section id="identity_sheet" data-transition="fade" style="background:#EFE6D6;color:{BODY};font-family:'DM Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:28px">
+<div style="display:flex;flex-direction:column;gap:12px"><p style="font-size:24px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:{BLUE}">{T('Brändi identiteet','Brand identity')}</p>
+<h2 style="{FD};font-size:56px;font-weight:500;line-height:1.1;color:{HEAD}">{T('Logo, värvid, kiri ja muster – üks süsteem.','Logo, colours, type and pattern – one system.')}</h2></div>
+<img src="{IMG['idB']}" alt="{T('Pirogoffi brändi identiteedi leht','Pirogoff brand identity sheet')}" style="width:1664px;height:620px;object-fit:contain;border-radius:20px">
+{footer(0)}</section>""")
+
+# LINEUP full-bleed
+addslide("lineup", f"""<section id="lineup" data-transition="fade" style="background:{DARK};color:{LIGHT};font-family:'DM Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column">
+<img src="{IMG['lineup']}" alt="{T('GO, AIR ja KLASSIK formaadid','GO, AIR and KLASSIK formats')}" style="position:absolute;left:0px;top:0px;width:1920px;height:1080px;object-fit:cover">
+<div style="position:absolute;left:0px;top:0px;width:1920px;height:320px;background:linear-gradient(180deg, rgba(46,33,23,0.92) 0%, rgba(46,33,23,0) 100%)"></div>
+<div style="position:absolute;left:128px;top:96px;width:1600px;display:flex;flex-direction:column;gap:12px">
+<p style="font-size:24px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:{LBLUE}">{T('Uued formaadid','New formats')}</p>
+<h2 style="{FD};font-size:64px;font-weight:500;line-height:1.1;color:{LIGHT}">{T('Väike, keskmine, suur – igaks hetkeks oma pirukas.','Small, medium, large – a pie for every moment.')}</h2></div>
+</section>""")
+
+# FORMATS with images
+def fcard(k, name, w, price, txt, col):
+    return (f'<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FBF7F0;border:1px solid #E0D3BE;border-radius:20px;padding:20px">'
+            f'{img(k,368,276,14,name)}<div style="display:flex;flex-direction:column;gap:8px;padding:8px 12px">'
+            f'<p style="{FD};font-size:44px;font-weight:600;color:{HEAD}">{name}</p><p style="font-size:26px;font-weight:700;color:{col}">{w} · {price}</p>'
+            f'<p style="font-size:24px;line-height:1.35">{txt}</p></div></div>')
+addslide("formats2", sec("formats2", f"""{head(T('Formaadid','Formats'), T('Pirukas igaks hetkeks.','A pie for every moment.'))}
+<div style="display:flex;gap:20px">
+{fcard('go','GO','120 g','3,50 €',T('Käes söödav, paberümbrises. Tudengile ja reisijale.','Hand-held, in a paper sleeve. For students and commuters.'),TERRA)}
+{fcard('tukk','TÜKK',T('viil','slice'),'2,90 €',T('Viil karbis kohvikutele ja letile.','A boxed slice for cafés and counters.'),"#5F7D50")}
+{fcard('air','AIR','350 g',T('külmutatud','frozen'),T('Õhufritüüris 18 min. Sügavkülmast õhtusöögiks.','18 min in the air fryer. Freezer to dinner.'),BLUE)}
+{fcard('klassik','KLASSIK','1 kg',T('värske või külm.','fresh or frozen'),T('Pidulaua pirukas – küpseta kodus lõpuni.','The feast pie – finish baking at home.'),"#6B4A2B")}
+</div>""", bg=ALT, extra=";gap:36px"))
+
+# PERSONAS with student image
+pp2=[(T('Tudeng','Student'),T('GO teel loengusse, alla 4 €.','GO on the way to class, under €4.')),(T('Pendelrändaja','Commuter'),T('Hommikune pirukas Balti jaamas.','A morning pie at Balti jaam.')),(T('Vanaema ja lapselaps','Grandma and grandchild'),T('Kaks GO-d jalutuskäigul.','Two GOs on a walk.')),(T('Pere','Family'),T('KLASSIK pühapäeva õhtusöögiks.','KLASSIK for Sunday dinner.')),(T('Kontor','Office'),T('Pirukakast koosolekuks.','A pie box for the meeting.')),(T('Turist','Tourist'),T('Kohalik maitse kingikarbis.','A local taste in a gift box.'))]
+def pcard(a,b):
+    return (f'<div style="display:flex;flex-direction:column;gap:8px;background:#FBF7F0;border:1px solid #E0D3BE;border-radius:16px;padding:24px">'
+            f'<h3 style="{FD};font-size:34px;font-weight:600;color:{HEAD}">{a}</h3><p style="font-size:26px;line-height:1.35">{b}</p></div>')
+addslide("personas2", sec("personas2", f"""{head(T('Kellele','Who it is for'), T('Kuus inimest, kuus põhjust osta.','Six people, six reasons to buy.'))}
+<div style="display:flex;gap:40px;align-items:start">
+{img('student',500,620,24,T('Tudeng sööb GO pirukat vanalinnas','Student eating a GO pie in the Old Town'))}
+<div style="flex:1;display:grid;grid-template-columns:repeat(2, 1fr);gap:20px">{''.join(pcard(a,b) for a,b in pp2)}</div>
+</div>""", extra=";gap:36px"))
+
 FINAL=["cover","intro","revenue","digital",
  "market","benchmark","competitors","prices","audiences",
  "opportunity","where","what",
  "campaign","moments","campaign_run",
- "positioning","identity","flavours","collection","shelf","premium","formats","personas",
+ "positioning","directions","identity_sheet","identity","flavours","collection","shelf","premium","lineup","formats2","personas2",
  "social2","connect",
  "channels","b2b","ready",
  "roadmap","goals","next"]
