@@ -8,12 +8,8 @@
  "title": "Pirogoff · Tallinn feast pies – proposal",
  "order": [
   "cover",
-  "story",
-  "name",
-  "company",
+  "intro",
   "revenue",
-  "today",
-  "product",
   "digital",
   "market",
   "benchmark",
@@ -21,6 +17,11 @@
   "prices",
   "audiences",
   "opportunity",
+  "where",
+  "what",
+  "campaign",
+  "moments",
+  "campaign_run",
   "positioning",
   "identity",
   "flavours",
@@ -29,39 +30,51 @@
   "premium",
   "formats",
   "personas",
+  "social2",
+  "connect",
   "channels",
   "b2b",
-  "system",
-  "lab",
-  "social",
+  "ready",
   "roadmap",
   "goals",
   "next"
  ],
  "sections": {
   "s1": {
-   "description": "Opening: story and name",
+   "description": "Opening",
    "start": "cover"
   },
   "s2": {
    "description": "Where we stand",
-   "start": "company"
+   "start": "intro"
   },
   "s3": {
    "description": "Market and competition",
    "start": "market"
   },
   "s4": {
-   "description": "Strategy, brand and packaging",
+   "description": "Opportunities: where and what",
    "start": "opportunity"
   },
   "s5": {
+   "description": "Campaign “Just like when you were little”",
+   "start": "campaign"
+  },
+  "s6": {
+   "description": "Brand, packaging and formats",
+   "start": "positioning"
+  },
+  "s7": {
+   "description": "Social media and community",
+   "start": "social2"
+  },
+  "s8": {
    "description": "Channels and quality",
    "start": "channels"
   },
-  "s6": {
+  "s9": {
    "description": "Plan and next steps",
-   "start": "social"
+   "start": "roadmap"
   }
  },
  "faces": {

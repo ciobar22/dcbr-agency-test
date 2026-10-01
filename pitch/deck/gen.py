@@ -12,7 +12,7 @@ slides = []
 def footer(n, dark=False):
     c = SOFT if dark else FOOT
     return (f'<p style="position:absolute;left:128px;bottom:64px;width:1200px;font-size:24px;color:{c}">Pirogoff · {T("Tallinna pidupirukad","Tallinn feast pies")}</p>'
-            f'<p style="position:absolute;right:128px;bottom:64px;width:200px;text-align:right;font-size:24px;color:{c}">{n:02d} / {TOTAL}</p>')
+            f'<p style="position:absolute;right:128px;bottom:64px;width:200px;text-align:right;font-size:24px;color:{c}">@@N@@ / @@T@@</p>')
 def head(eyebrow, title, dark=False, accent=None):
     a = accent or (LBLUE if dark else BLUE); h = LIGHT if dark else HEAD
     return (f'<div style="display:flex;flex-direction:column;gap:16px">'
@@ -367,23 +367,29 @@ slides.append(("next", f'''<section id="next" data-transition="fade" style="back
 <ol style="font-size:30px;line-height:1.6;color:{SOFT}"><li>{T('Kohtumine ja tagasiside sellele ettepanekule','Meeting and feedback on this proposal')}</li><li>{T('Müügiandmed kanalite kaupa ja kulud','Sales data by channel and costs')}</li><li>{T('Start: esimesed 30 päeva','Kick-off: the first 30 days')}</li></ol>
 </div>
 <p style="position:absolute;left:128px;bottom:64px;width:700px;font-size:24px;color:{SOFT}">Pirogoff · {T('Tallinna pidupirukad','Tallinn feast pies')}</p>
-<p style="position:absolute;left:760px;bottom:64px;width:200px;text-align:right;font-size:24px;color:{SOFT}">30 / {TOTAL}</p>
+<p style="position:absolute;left:760px;bottom:64px;width:200px;text-align:right;font-size:24px;color:{SOFT}">@@N@@ / @@T@@</p>
 </section>'''))
 
-assert len(slides)==TOTAL, len(slides)
+exec(open(os.path.join(os.path.dirname(os.path.abspath(__file__)),'gen_extra.py')).read())
 os.makedirs(f"{ROOT}/project/slides", exist_ok=True)
-for sid,s in slides:
-    open(f"{ROOT}/project/slides/{sid}.html","w").write(s)
-order=[s for s,_ in slides]
+for f in os.listdir(f"{ROOT}/project/slides"): os.remove(f"{ROOT}/project/slides/{f}")
+D=dict(slides)
+order=FINAL
+for k,sid in enumerate(order):
+    html=D[sid].replace('@@N@@',f'{k+1:02d}').replace('@@T@@',str(len(order)))
+    open(f"{ROOT}/project/slides/{sid}.html","w").write(html)
 deck={"v":4,"createdOnFiles":{"v":1,"at":"2026-10-01T12:00:00Z"},"lists":"css",
  "title":T("Pirogoff · Tallinna pidupirukad – ettepanek","Pirogoff · Tallinn feast pies – proposal"),
  "order":order,
- "sections":{"s1":{"description":T("Avamine: lugu ja nimi","Opening: story and name"),"start":"cover"},
-             "s2":{"description":T("Olukord täna","Where we stand"),"start":"company"},
+ "sections":{"s1":{"description":T("Avamine","Opening"),"start":"cover"},
+             "s2":{"description":T("Olukord täna","Where we stand"),"start":"intro"},
              "s3":{"description":T("Turg ja konkurents","Market and competition"),"start":"market"},
-             "s4":{"description":T("Strateegia, bränd ja pakend","Strategy, brand and packaging"),"start":"opportunity"},
-             "s5":{"description":T("Kanalid ja kvaliteet","Channels and quality"),"start":"channels"},
-             "s6":{"description":T("Plaan ja järgmised sammud","Plan and next steps"),"start":"social"}},
+             "s4":{"description":T("Võimalused: kus ja mida","Opportunities: where and what"),"start":"opportunity"},
+             "s5":{"description":T("Kampaania „Nagu lapsepõlves“","Campaign “Just like when you were little”"),"start":"campaign"},
+             "s6":{"description":T("Bränd, pakend ja formaadid","Brand, packaging and formats"),"start":"positioning"},
+             "s7":{"description":T("Sotsiaalmeedia ja kogukond","Social media and community"),"start":"social2"},
+             "s8":{"description":T("Kanalid ja kvaliteet","Channels and quality"),"start":"channels"},
+             "s9":{"description":T("Plaan ja järgmised sammud","Plan and next steps"),"start":"roadmap"}},
  "faces":{"fraunces":{"family":"Fraunces","href":"https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400..700;1,400..700&display=swap"},
           "dm-sans":{"family":"DM Sans","href":"https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap"}},
  "designSystems":[]}
