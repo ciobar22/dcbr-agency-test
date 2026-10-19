@@ -32,6 +32,7 @@ const AGENT_DEFS = [
   { id: 14, emoji: '🎬', name: 'Script & Storyboard',      role: 'Video Scripts & Shot Decks',       color: '#e879f9' },
   { id: 15, emoji: '🖼️', name: 'Visual Producer',          role: 'Art Direction & Image Prompts',    color: '#fb7185' },
   { id: 16, emoji: '♻️', name: 'Content Multiplier',       role: 'Cross-Platform Repurposing',       color: '#fb7185' },
+  { id: 17, emoji: '🎥', name: 'AI Clone Video Director',  role: 'Storyline-First AI Video',         color: '#e879f9' },
 ]
 
 const ORCHESTRATOR = { id: 12, emoji: '🧠', name: 'AI Orchestrator', role: 'Master Supervisor', color: '#c084fc' }
@@ -53,6 +54,7 @@ const THINKING: Record<number, string[]> = {
   14: ['Writing hook variations...', 'Structuring shot deck...', 'Adapting for TikTok/Reels...', 'Finalizing video scripts...'],
   15: ['Defining art direction...', 'Building color palette...', 'Engineering DALL-E prompts...', 'Generating visual references...'],
   16: ['Repurposing for Instagram...', 'Writing TikTok pack...', 'Building LinkedIn content...', 'Planning 2-week calendar...'],
+  17: ['Writing director storyline...', 'Mapping subjects & references...', 'Splitting Seedance generations...', 'Drafting Seedance prompts...'],
 }
 
 function renderMarkdown(text: string): string {
@@ -218,7 +220,7 @@ export default function RunPage() {
   const startedRef  = useRef(false)
   const phraseTimer = useRef<ReturnType<typeof setInterval> | null>(null)
 
-  const TOTAL = allDefs.length // 16 agents + orchestrator
+  const TOTAL = allDefs.length // 16 specialists + orchestrator
   const completedCount = agents.filter(a => a.status === 'complete').length
   const orchestratorState = agents.find(a => a.id === 12)!
   const selectedState     = agents.find(a => a.id === selectedAgent)

@@ -14,7 +14,7 @@ const translations: Record<string, Record<Lang, string>> = {
   'nav.back_short': { it: 'Indietro', en: 'Back', ru: 'Назад' },
 
   // ── Home ──
-  'home.badge': { it: '16 Specialisti AI · Orchestratore Supervisore · 8 Aree', en: '16 AI Specialists · Supervisor Orchestrator · 8 Areas', ru: '16 ИИ-специалистов · Оркестратор-супервизор · 8 областей' },
+  'home.badge': { it: '17 Specialisti AI · Orchestratore Supervisore · 8 Aree', en: '17 AI Specialists · Supervisor Orchestrator · 8 Areas', ru: '17 ИИ-специалистов · Оркестратор-супервизор · 8 областей' },
   'home.title1': { it: 'La tua Agenzia', en: 'Your Agency', ru: 'Ваше Агентство' },
   'home.title2': { it: 'AI. Istantanea.', en: 'AI. Instant.', ru: 'ИИ. Мгновенно.' },
   'home.subtitle': { it: "Inserisci un brief — testo, URL o documento. L'Orchestratore AI supervisiona 11 specialisti in tempo reale: marketing, strategia, prodotto, ingegneria, finanza e operations.", en: 'Enter a brief — text, URL or document. The AI Orchestrator supervises 11 specialists in real time: marketing, strategy, product, engineering, finance and operations.', ru: 'Введите бриф — текст, URL или документ. ИИ-оркестратор контролирует 11 специалистов в реальном времени: маркетинг, стратегия, продукт, инженерия, финансы и операции.' },
@@ -33,7 +33,7 @@ const translations: Record<string, Record<Lang, string>> = {
   'home.step3.label': { it: 'Strategia completa', en: 'Complete strategy', ru: 'Полная стратегия' },
   'home.step3.desc': { it: 'Scarica un pacchetto marketing professionale e completo.', en: 'Download a complete professional marketing package.', ru: 'Скачайте полный профессиональный маркетинговый пакет.' },
   'home.team': { it: 'Il team', en: 'The team', ru: 'Команда' },
-  'home.team.title': { it: 'Incontra i tuoi 16 specialisti', en: 'Meet your 16 specialists', ru: 'Познакомьтесь с 16 специалистами' },
+  'home.team.title': { it: 'Incontra i tuoi 17 specialisti', en: 'Meet your 17 specialists', ru: 'Познакомьтесь с 17 специалистами' },
   'home.cat.all': { it: 'Tutti', en: 'All', ru: 'Все' },
   'home.cat.marketing': { it: 'Marketing', en: 'Marketing', ru: 'Маркетинг' },
   'home.cat.growth': { it: 'Growth', en: 'Growth', ru: 'Рост' },

@@ -32,14 +32,14 @@ interface Project {
   content: { id: string; type: string; title: string; data: string; created_at: string } | null
 }
 
-const TOTAL_AGENTS = 16
+const TOTAL_AGENTS = 17
 
 const AGENT_COLORS: Record<number, string> = {
   1: '#f472b6', 2: '#f472b6', 3: '#f472b6',
   4: '#06b6d4', 5: '#06b6d4', 6: '#06b6d4',
   7: '#818cf8', 8: '#f59e0b', 9: '#f59e0b',
   10: '#10b981', 11: '#10b981', 12: '#a855f7',
-  13: '#e879f9', 14: '#e879f9', 15: '#fb7185', 16: '#fb7185',
+  13: '#e879f9', 14: '#e879f9', 15: '#fb7185', 16: '#fb7185', 17: '#e879f9',
 }
 
 function ScoreBadge({ score }: { score: number }) {

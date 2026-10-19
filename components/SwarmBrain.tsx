@@ -51,16 +51,17 @@ const AGENT_DEFS = [
   { id: 14, emoji: '🎬', name: 'Script Writer',        color: '#e879f9', category: 'koda' },
   { id: 15, emoji: '🖼️', name: 'Visual Producer',      color: '#fb7185', category: 'koda' },
   { id: 16, emoji: '♻️', name: 'Content Multiplier',   color: '#fb7185', category: 'koda' },
+  { id: 17, emoji: '🎥', name: 'AI Clone Video',       color: '#e879f9', category: 'koda' },
 ]
 
 // Neural connections
 const CONNECTIONS: [number, number][] = [
   [0, 1], [0, 2], [0, 3], [0, 4], [0, 5], [0, 6], [0, 7], [0, 8], [0, 9], [0, 10], [0, 11], [0, 12],
-  [0, 13], [0, 14], [0, 15], [0, 16],
+  [0, 13], [0, 14], [0, 15], [0, 16], [0, 17],
   [1, 2], [1, 5], [1, 13], [2, 3], [2, 10], [2, 15], [3, 6], [3, 14], [3, 16],
   [4, 5], [4, 6], [5, 8], [6, 8], [7, 5], [7, 3], [7, 15],
   [8, 9], [9, 10], [10, 11], [11, 12], [12, 0],
-  [13, 14], [14, 15], [15, 16], [16, 12],
+  [13, 14], [14, 15], [15, 16], [16, 12], [14, 17], [15, 17], [17, 12],
 ]
 
 export default function SwarmBrain({ height = '100%', showLabels = true, interactive = true, liveAgents = [], overlay = 'none' }: Props) {
