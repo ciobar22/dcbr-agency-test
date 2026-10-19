@@ -1,0 +1,270 @@
+{
+  "version": 2,
+  "externalImagesUsed": true,
+  "thirdPartyBrandAssetsUsed": false,
+  "source": "User-supplied AI-generated original artwork; image-tool garment concepts; LTX-2.5 Pro and Kling 3.0 video; retained procedural test fixtures",
+  "mediaReleaseStatus": "Owner approved public release under MIT on 2026-10-19",
+  "items": [
+    {
+      "file": "public/fixtures/cards-pink-v3/atlas.webp",
+      "bytes": 368874,
+      "sha256": "6a2c5a63f874d80019e37d1a2e42c0a409b2fb3269ab01ee50609d5ac92f2a6b"
+    },
+    {
+      "file": "public/fixtures/cards-pink-v3/back.webp",
+      "bytes": 20556,
+      "sha256": "0bb56bb81ee2398d6722676ab39cf07df48133fad7402b946efcd2909e8f176d"
+    },
+    {
+      "file": "public/fixtures/cards-pink-v3/front.webp",
+      "bytes": 72934,
+      "sha256": "2628c874b22d8a5d3c1ede5b725358b52514f76edebc94b62a07849301e24c6d"
+    },
+    {
+      "file": "public/fixtures/cards-pink-v3/key-review.jpg",
+      "bytes": 236030,
+      "sha256": "17af70220c63dd84f0c02f930df56a9e6002f0041c8b70ea8d1c6626549452a6"
+    },
+    {
+      "file": "public/fixtures/cards-pink-v3/manifest.json",
+      "bytes": 1208,
+      "sha256": "051879e7ad680b368477b94f3d6227228fd193e2f7e4098dccde231b74514812"
+    },
+    {
+      "file": "public/fixtures/cards-pink-v3/profile.webp",
+      "bytes": 26916,
+      "sha256": "5476c27ee46f5055da41638693d4c1341dc5e50e51f3297e7d070890dfd390b6"
+    },
+    {
+      "file": "public/fixtures/crew/atlas.webp",
+      "bytes": 239288,
+      "sha256": "0f03cdefb8a52c50f0a6e8108d7548a266c0dbafe412152d661bcdff48c9b1ad"
+    },
+    {
+      "file": "public/fixtures/crew/back.webp",
+      "bytes": 25712,
+      "sha256": "37a2129b4797383bba9fd368b02a1fe72c8b59f78790fa7104069262fe586a15"
+    },
+    {
+      "file": "public/fixtures/crew/front.webp",
+      "bytes": 35570,
+      "sha256": "20665d1dc2bd3d76b8fc7c4a870546382547a6fcf40f98eb434f20c8e66958a5"
+    },
+    {
+      "file": "public/fixtures/crew/manifest.json",
+      "bytes": 437,
+      "sha256": "a95a257ba4386e358c4f2051b05645996032852e3491ed35c8ca42d4b055b818"
+    },
+    {
+      "file": "public/fixtures/crew/profile.webp",
+      "bytes": 8144,
+      "sha256": "28c8562b4a9f3e5731e2f4345daec040ab5a41246bd86b3355d644ee0cf0564d"
+    },
+    {
+      "file": "public/fixtures/hoodie/atlas.webp",
+      "bytes": 296210,
+      "sha256": "2cd70abecbcba81a5f6ac1bae95f3514c1255f26733c370f8ba4ca8ab9bb58ab"
+    },
+    {
+      "file": "public/fixtures/hoodie/back.webp",
+      "bytes": 28570,
+      "sha256": "ea69e83da44ac6590a95cc6ba23bfaa07da0635c21f2cc0bf84242f3cfecdb72"
+    },
+    {
+      "file": "public/fixtures/hoodie/front.webp",
+      "bytes": 50550,
+      "sha256": "c5c9763d0cc79703b7810d2123ec54da4ed7c26038bcfce6049311eb52fa21d5"
+    },
+    {
+      "file": "public/fixtures/hoodie/manifest.json",
+      "bytes": 437,
+      "sha256": "a95a257ba4386e358c4f2051b05645996032852e3491ed35c8ca42d4b055b818"
+    },
+    {
+      "file": "public/fixtures/hoodie/profile.webp",
+      "bytes": 13500,
+      "sha256": "482d3b116a1a52aa8e1f1e3bec01c4d847f97b80ff887ad6195d1677d86301db"
+    },
+    {
+      "file": "public/fixtures/lake-white-v3/atlas.webp",
+      "bytes": 468828,
+      "sha256": "d807c656770efcf251a0f639a49ce390d7c4db40272867cb540077a93d488887"
+    },
+    {
+      "file": "public/fixtures/lake-white-v3/back.webp",
+      "bytes": 12520,
+      "sha256": "9384ddc9bd3613c8a978f11bd7794a95ea4a054acdb8d2ccf7b7383e54575a07"
+    },
+    {
+      "file": "public/fixtures/lake-white-v3/front.webp",
+      "bytes": 81446,
+      "sha256": "5a6192e713379dd3ff639e4bfd39856fa534513efcb6522b4c14a1d29eb7f4ee"
+    },
+    {
+      "file": "public/fixtures/lake-white-v3/key-review.jpg",
+      "bytes": 262416,
+      "sha256": "2e915d249b54059e0aaa7aa23593545fc0d95c74731b24a832f133d58d1132fb"
+    },
+    {
+      "file": "public/fixtures/lake-white-v3/manifest.json",
+      "bytes": 1209,
+      "sha256": "31517cca649e28fc04ee0bda3cc5466ab49dd86ecec8b5c6004986682f9bebe3"
+    },
+    {
+      "file": "public/fixtures/lake-white-v3/profile.webp",
+      "bytes": 18238,
+      "sha256": "af72253023d6705c4a49cb6fbc532fe3fa66b23309797fbd67d798ae29ad43e8"
+    },
+    {
+      "file": "public/fixtures/lionel-letsgooo-black/atlas.webp",
+      "bytes": 251934,
+      "sha256": "1675f678e06275a1307d0e66eedabfc43c47c34f84a14a7e84b3cdc153aae7ec"
+    },
+    {
+      "file": "public/fixtures/lionel-letsgooo-black/back.webp",
+      "bytes": 5634,
+      "sha256": "5e9a47d2e2a3f90d8a019764a644a4c8dc5c2266ff6310e14359804adfb606bc"
+    },
+    {
+      "file": "public/fixtures/lionel-letsgooo-black/front.webp",
+      "bytes": 31282,
+      "sha256": "7849687c6e134b9c0c284e60743b191786d0734465210301d7bc15e440dc2dfe"
+    },
+    {
+      "file": "public/fixtures/lionel-letsgooo-black/key-review.jpg",
+      "bytes": 175376,
+      "sha256": "da8ec2ecc3136b36cc6058e2afd54b4e8b084c4b6f4ea357709cf8b0b72b019a"
+    },
+    {
+      "file": "public/fixtures/lionel-letsgooo-black/manifest.json",
+      "bytes": 716,
+      "sha256": "606963fd48a1f1d4af522df7b987a63634a108370db3ba124c6b9e97aeeebe77"
+    },
+    {
+      "file": "public/fixtures/lionel-letsgooo-black/profile.webp",
+      "bytes": 10360,
+      "sha256": "f64af27558dcf61c473d17a8c0a51d3de36a0576e4c4e3dca108c2330089a787"
+    },
+    {
+      "file": "public/fixtures/lionel-letsgooo-sand/atlas.webp",
+      "bytes": 291104,
+      "sha256": "33389daa85d4e8d40bed1aad0d04f079da1559f3cd41a5f3f9ddb5be9792e29b"
+    },
+    {
+      "file": "public/fixtures/lionel-letsgooo-sand/back.webp",
+      "bytes": 7730,
+      "sha256": "16daed0a7a97e00d10048ebd5baa70102b2c28a4bbd95f69c1853120693c82aa"
+    },
+    {
+      "file": "public/fixtures/lionel-letsgooo-sand/front.webp",
+      "bytes": 44812,
+      "sha256": "e59f9eed5296374f7d91b5d1e8a388fd3b6fa48c60e0f829564c2255efcc1cfb"
+    },
+    {
+      "file": "public/fixtures/lionel-letsgooo-sand/key-review.jpg",
+      "bytes": 190849,
+      "sha256": "790f9c1df9d1adc69345d36f9cc0663f6b4d8c8985d14d1c5a7cec9a0be77f92"
+    },
+    {
+      "file": "public/fixtures/lionel-letsgooo-sand/manifest.json",
+      "bytes": 715,
+      "sha256": "445c2b9dea0bfebe587d45944e3ee70525adc283ddbcbbc0deb10c938d6ca85f"
+    },
+    {
+      "file": "public/fixtures/lionel-letsgooo-sand/profile.webp",
+      "bytes": 15488,
+      "sha256": "2b2b68d21247d2f2fe46a3071a42126d26891051966cce4469b057a563871054"
+    },
+    {
+      "file": "public/fixtures/lionel-monogram-olive/atlas.webp",
+      "bytes": 256092,
+      "sha256": "bb88e053682384df0bc8e8136ee407b2663119767aa9acfe055aec87f1baf0bc"
+    },
+    {
+      "file": "public/fixtures/lionel-monogram-olive/back.webp",
+      "bytes": 6480,
+      "sha256": "7fd5c99e95b11778d71e26da53396aa21eee11f502fde7074ac0906798e7e92a"
+    },
+    {
+      "file": "public/fixtures/lionel-monogram-olive/front.webp",
+      "bytes": 42430,
+      "sha256": "90d41a45d5a5ebd7292ca7068a7963828e062dc9a3fbdaa6ea9bb23941505fdf"
+    },
+    {
+      "file": "public/fixtures/lionel-monogram-olive/key-review.jpg",
+      "bytes": 176318,
+      "sha256": "8bec15c6eea0c55900874db4d89d840110ab9ab41a1aee3b33922c8033c70cc1"
+    },
+    {
+      "file": "public/fixtures/lionel-monogram-olive/manifest.json",
+      "bytes": 716,
+      "sha256": "33527c4da4aa5b04171d248904f3548efd76d64c27a793b3aa6ad024c5446291"
+    },
+    {
+      "file": "public/fixtures/lionel-monogram-olive/profile.webp",
+      "bytes": 15802,
+      "sha256": "2a88fa7262bbaee078543d7100516d12a506b9dc38baae7b1169e64d5197e32f"
+    },
+    {
+      "file": "public/fixtures/lionel-studio-bone/atlas.webp",
+      "bytes": 304466,
+      "sha256": "6c65778e0c62eb4271e61b07f2d03150ea1e2f701c53ef460a59fc1526a04dca"
+    },
+    {
+      "file": "public/fixtures/lionel-studio-bone/back.webp",
+      "bytes": 9192,
+      "sha256": "f99ad39621dd1e7cf2bc80d234386e0b4544ef150d380a79198e31fa167c6553"
+    },
+    {
+      "file": "public/fixtures/lionel-studio-bone/front.webp",
+      "bytes": 39966,
+      "sha256": "5facde337a5b7070ca8eaf731c6a55e1efbbde9a33366056a66521d991e29054"
+    },
+    {
+      "file": "public/fixtures/lionel-studio-bone/key-review.jpg",
+      "bytes": 199625,
+      "sha256": "7f52215a9399c27ef2b703435bdad6bebcf0e16f3188b043350da974ccedf8d0"
+    },
+    {
+      "file": "public/fixtures/lionel-studio-bone/manifest.json",
+      "bytes": 715,
+      "sha256": "44119c3d4774b249c70be4f24cfef7dd0a5b71b61a0f79984db817122dc72940"
+    },
+    {
+      "file": "public/fixtures/lionel-studio-bone/profile.webp",
+      "bytes": 13742,
+      "sha256": "f302ee6c0707b10717a69448c02720f727a3ce3a29c6536f1df584a882d21518"
+    },
+    {
+      "file": "public/fixtures/tee/atlas.webp",
+      "bytes": 204052,
+      "sha256": "1ff70b15194e8a2dd9969279767854ccca124b0a9aefe0ed5ba8f1032f4d2f1c"
+    },
+    {
+      "file": "public/fixtures/tee/back.webp",
+      "bytes": 25102,
+      "sha256": "234e94717b842e6a884c8fc95e3dd9ac5be51b8820b552af3547b456a9382b0d"
+    },
+    {
+      "file": "public/fixtures/tee/front.webp",
+      "bytes": 29556,
+      "sha256": "9b3d6099a084892881816e983f41b377a1358636366549720539e2d41632dcd4"
+    },
+    {
+      "file": "public/fixtures/tee/manifest.json",
+      "bytes": 437,
+      "sha256": "a95a257ba4386e358c4f2051b05645996032852e3491ed35c8ca42d4b055b818"
+    },
+    {
+      "file": "public/fixtures/tee/profile.webp",
+      "bytes": 7574,
+      "sha256": "923bf8fde165c29e09a4b74188369759eaf5c7ae6906f0c76715b04a60a2800d"
+    }
+  ],
+  "clientConcepts": {
+    "files": "public/fixtures/lionel-*",
+    "made": "Restyled by DCBR Agency with pipeline/restyle.py from the MIT lake-white-v3 take; new typographic prints from concepts/lionel/prints.py (Anton and Archivo Black, OFL)",
+    "brandName": "The prints typeset the client name Lionel Studio. No Lionel photography, logo files or product media are included.",
+    "releaseStatus": "Private pitch material: publish only with Lionel Studio approval"
+  }
+}

@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="it" data-catalog="lionel">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Concept DCBR Agency per Lionel Studio: una vetrina dove le T-shirt girano su una stanga quando ci passi sopra.">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#efebe4">
+  <title>Lionel Studio · Concept DCBR</title>
+  <link rel="stylesheet" href="src/style.css">
+  <link rel="stylesheet" href="src/lionel.css">
+  <script type="module" src="src/app.js"></script>
+  <script type="module" src="src/lionel.js"></script>
+</head>
+<body>
+  <a class="skip" href="#showcase">Vai ai capi</a>
+  <div class="promo" aria-label="Spedizione gratuita sopra i 150 €. Prezzi in euro, IVA inclusa.">
+    <div class="promo-track" aria-hidden="true"><span>Spedizione gratuita sopra i 150 €</span><span>Prezzi in euro, IVA inclusa</span><span>Spedizione gratuita sopra i 150 €</span><span>Prezzi in euro, IVA inclusa</span></div>
+  </div>
+  <header class="site-header">
+    <a class="wordmark" href="#showcase" id="site-title">LIONEL STUDIO<span aria-hidden="true"></span></a>
+    <nav class="main-nav" aria-label="Categorie"><a href="#showcase" aria-current="page">Streetwear</a><a href="#lines">Sartoria</a><a href="#showcase">Scarpe</a><a href="#showcase">Saldi</a></nav>
+    <button class="cart-button" id="cart-button" aria-live="polite">Carrello <span id="cart-count">0</span></button>
+  </header>
+  <main id="showcase">
+    <div class="intro">
+      <p class="eyebrow">Drop 01 · T-shirt</p>
+      <h1>LET'S GOOO<span class="bang">!!!</span></h1>
+      <p class="intro-note" id="interaction-hint">Passa sopra un capo per girarlo · Clicca per i dettagli</p>
+    </div>
+    <div class="rack" id="rack" aria-label="Collezione interattiva" aria-busy="true">
+      <div class="rail" aria-hidden="true"></div>
+      <div class="rack-items" id="rack-items"></div>
+      <div class="load-state" id="load-state" role="status"><span id="load-text">Preparo la stanga</span><span id="load-counter">0 / 4</span></div>
+    </div>
+    <div class="collection-bar">
+      <div class="selected-info" aria-live="polite"><span id="selected-index">01 / 04</span><h2 id="selected-name">LET'S GOOO!!! Tee</h2><p id="selected-type">T-shirt oversize in cotone · Nero</p></div>
+      <p class="selected-price" id="selected-price">€ 68</p>
+      <div class="browse-controls"><button id="previous" class="arrow-button" disabled aria-label="Capo precedente">←</button><button id="next" class="arrow-button" disabled aria-label="Capo successivo">→</button><button id="inspect" class="inspect-button" disabled>Scopri il capo <span aria-hidden="true">↗</span></button></div>
+    </div>
+  </main>
+  <section class="lines" id="lines" aria-labelledby="lines-title">
+    <p class="eyebrow">Due linee, un nome</p>
+    <h2 id="lines-title">Lo streetwear urla.<br>La sartoria parla piano.</h2>
+    <div class="line-cards">
+      <article><span>01</span><h3>Lionel Studio</h3><p>T-shirt, felpe, denim customizzato a mano. L'energia del negozio: LET'S GOOO!!!</p></article>
+      <article class="tailoring"><span>02</span><h3>Lionel Sartoria</h3><p>Abiti doppiopetto in fresco lana, per cerimonia. Una vetrina a parte, più silenziosa, con lo stesso nome.</p></article>
+    </div>
+  </section>
+  <footer class="site-footer"><span>© 2026 Lionel Studio</span><span>Prezzi in euro, IVA inclusa</span><button class="text-button" id="about-open">Concept DCBR Agency · anteprima non ufficiale <span aria-hidden="true">↗</span></button></footer>
+  <dialog id="product-dialog" aria-labelledby="product-title">
+    <div class="dialog-header"><span class="eyebrow">Scheda prodotto</span><button class="close-button" data-close="product-dialog" aria-label="Chiudi la scheda">Chiudi ×</button></div>
+    <div class="product-layout"><div class="detail-stage"><img id="detail-image" alt="" width="384" height="448"></div><div class="product-copy"><p class="eyebrow" id="product-type"></p><h2 id="product-title"></h2><p class="product-price" id="product-price"></p><p id="product-description"></p>
+      <div class="sizes" role="radiogroup" aria-label="Taglia"><button role="radio" aria-checked="false">S</button><button role="radio" aria-checked="true">M</button><button role="radio" aria-checked="false">L</button><button role="radio" aria-checked="false">XL</button></div>
+      <button class="add-button" id="add-to-cart" data-done="Aggiunto al carrello ✓">Aggiungi al carrello</button>
+      <dl><div><dt>Colore</dt><dd id="product-color"></dd></div><div><dt>Immagine</dt><dd id="product-preview">Concept DCBR</dd></div><div><dt>Spedizione</dt><dd>Gratuita sopra i 150 €</dd></div></dl>
+      <div class="view-tabs" role="group" aria-label="Lato del capo"><button id="view-front" aria-pressed="true">Fronte</button><button id="view-back" aria-pressed="false">Retro</button></div><a id="product-link" hidden target="_blank" rel="noopener">Vedi il prodotto ↗</a><p class="detail-note"></p></div></div>
+  </dialog>
+  <dialog id="about-dialog" aria-labelledby="about-title"><div class="dialog-header"><span class="eyebrow">Come è fatto</span><button class="close-button" data-close="about-dialog" aria-label="Chiudi">Chiudi ×</button></div><div class="about-copy"><h2 id="about-title">Una stanga vera,<br>dentro il sito</h2><p>Ogni maglietta è una breve rotazione generata con l'AI a partire da due immagini: il capo di profilo e il capo di fronte. Il video viene scontornato e trasformato in fotogrammi, poi il sito sceglie quale mostrare in base al mouse o al dito.</p><p>Passi sopra un capo: si gira verso di te e gli altri si spostano. Lo lasci: torna di profilo. Sul telefono scorri la stanga e tocchi per aprire la scheda.</p><p>Queste quattro T-shirt sono concept preparati da DCBR Agency per mostrare l'effetto. Con le foto dei capi veri, abiti compresi, la stessa vetrina gira sul catalogo di Lionel Studio.</p></div></dialog>
+</body>
+</html>

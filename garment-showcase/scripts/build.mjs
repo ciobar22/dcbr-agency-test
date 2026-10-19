@@ -1,0 +1,10 @@
+import {mkdir,cp,rm,readdir} from 'node:fs/promises';
+import path from 'node:path';
+import {fileURLToPath} from 'node:url';
+const root=path.resolve(fileURLToPath(new URL('../',import.meta.url)));
+const out=path.resolve(root,'dist');
+if(path.dirname(out)!==root||path.basename(out)!=='dist')throw Error('Invalid build directory');
+await rm(out,{recursive:true,force:true});await mkdir(out,{recursive:true});
+const pages=(await readdir(root)).filter(f=>/^[a-z0-9-]+\.html$/.test(f));
+for(const entry of [...pages,'src','config','public','README.md','START-HERE.md','AGENTS.md','CLAUDE.md','docs','prompts','LICENSE','LICENSE-ASSETS.md','THIRD_PARTY_NOTICES.md'])await cp(path.join(root,entry),path.join(out,entry),{recursive:true});
+console.log('Built static site in dist/. No credentials, generation inputs or paid API helper copied.');

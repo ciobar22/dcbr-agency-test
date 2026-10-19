@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<title>DCBR reel composer</title>
+<style>
+@font-face{font-family:Anton;src:url('../public/fonts/Anton-Regular.woff2') format('woff2')}
+@font-face{font-family:'Archivo Black';src:url('../public/fonts/ArchivoBlack-Regular.woff2') format('woff2')}
+@font-face{font-family:Manrope;src:url('../public/fonts/Manrope-Regular.ttf');font-weight:400}
+@font-face{font-family:Manrope;src:url('../public/fonts/Manrope-SemiBold.ttf');font-weight:600}
+html,body{margin:0;background:#000}
+#stage{position:relative;width:1080px;height:1920px;overflow:hidden;font-family:Manrope,sans-serif}
+#stage *{box-sizing:border-box}
+.abs{position:absolute}
+.line{display:block;overflow:hidden;line-height:1}
+.line>span{display:inline-block;will-change:auto}
+.big{font:400 118px/1 Anton,Impact,sans-serif;text-transform:uppercase;letter-spacing:-.005em}
+.tag{font:600 26px/1 Manrope,sans-serif;letter-spacing:.16em;text-transform:uppercase}
+.frame{overflow:hidden;background:#fff}
+.frame iframe{border:0;transform-origin:0 0;position:absolute;left:0;top:0;background:#efebe4}
+#touch{width:92px;height:92px;margin:-46px 0 0 -46px;border-radius:50%;background:rgba(255,255,255,.35);border:3px solid rgba(255,255,255,.9);box-shadow:0 6px 30px rgba(0,0,0,.35);pointer-events:none;z-index:50;opacity:0}
+#cursor{width:46px;height:46px;pointer-events:none;z-index:50;opacity:0;transform-origin:4px 4px}
+canvas{display:block}
+</style>
+</head>
+<body>
+<div id="stage"></div>
+<svg width="0" height="0" style="position:absolute"><defs><path id="arrow" d="M4 3 L4 37 L13 29 L19 43 L25 40 L19 27 L31 27 Z"/></defs></svg>
+<script type="module">
+const stage=document.getElementById('stage');
+const params=new URLSearchParams(location.search);const which=params.get('reel')||'lionel';
+const clamp=(v,a=0,b=1)=>Math.min(b,Math.max(a,v));
+const seg=(t,a,b)=>clamp((t-a)/(b-a));
+const outCubic=x=>1-Math.pow(1-x,3),inOut=x=>x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2,outBack=x=>{const c=1.5;return 1+(c+1)*Math.pow(x-1,3)+c*Math.pow(x-1,2);};
+const lerp=(a,b,x)=>a+(b-a)*x;
+function el(tag,cls,style={},html=''){const n=document.createElement(tag);if(cls)n.className=cls;Object.assign(n.style,style);if(html)n.innerHTML=html;return n;}
+function put(parent,tag,cls,style,html){const n=el(tag,cls,style,html);parent.append(n);return n;}
+function lines(parent,texts,style,cls='big'){
+  const box=put(parent,'div','abs '+cls,style);
+  const spans=texts.map(text=>{const line=put(box,'span','line');return put(line,'span','',{},text);});
+  return {box,spans};
+}
+// Reveal lines one after another: each slides up out of its own mask.
+function reveal(group,t,start,step=.12,dur=.42,out=null){
+  group.spans.forEach((s,i)=>{const p=outCubic(seg(t,start+i*step,start+i*step+dur));let y=(1-p)*105;
+    if(out){const q=inOut(seg(t,out,out+.35));y-=q*105;}
+    s.style.transform=`translateY(${y}%)`;});
+}
+function opacity(n,v){n.style.opacity=String(clamp(v));}
+function frameFor(parent,src,{left,top,width,height,scale,radius=0}){
+  const box=put(parent,'div','abs frame',{left:left+'px',top:top+'px',width:width*scale+'px',height:height*scale+'px',borderRadius:radius+'px'});
+  const frame=put(box,'iframe','',{width:width+'px',height:height+'px',transform:`scale(${scale})`});frame.src=src;
+  return {box,frame,width,height,scale};
+}
+function frameReady(f){const d=f.frame.contentDocument;return d&&d.documentElement.dataset.ready==='true';}
+function prepareFrame(f){
+  const d=f.frame.contentDocument;
+  // Recorded frames are discrete: transitions would run on wall-clock time between screenshots.
+  const s=d.createElement('style');s.textContent='*{transition:none!important;caret-color:transparent!important}';d.head.append(s);
+}
+function syncFrame(f,t){for(const a of f.frame.contentDocument.getAnimations()){a.pause();a.currentTime=(t*1000)%26000;}}
+// Parent-stage coordinates of an element inside a scaled iframe.
+function inFrame(f,selector,fx=.5,fy=.5){
+  const r=f.frame.contentDocument.querySelector(selector).getBoundingClientRect(),b=f.frame.getBoundingClientRect(),k=b.width/f.width;
+  return [b.left+(r.left+r.width*fx)*k,b.top+(r.top+r.height*fy)*k];
+}
+function frameXY(f,x,y){const b=f.frame.getBoundingClientRect(),k=b.width/f.width;return [b.left+x*k,b.top+y*k];}
+async function atlas(name){
+  const m=await (await fetch(`../public/fixtures/${name}/manifest.json`)).json();const img=new Image();img.src=`../public/fixtures/${name}/${m.atlas}`;await img.decode();
+  return {m,img,draw(ctx,i,x,y,w,h){const c=m.columns;ctx.drawImage(img,(i%c)*m.width,Math.floor(i/c)*m.height,m.width,m.height,x,y,w,h);}};
+}
+const pingpong=(t,period)=>{const u=(t%period)/period;return inOut(u<.5?u*2:2-u*2);};
+
+// Pointer timeline: taps, swipes and cursor paths, resolved against live iframe layout.
+function pointerTimeline(actions,mode){
+  let last=[540,1500];
+  return t=>{
+    for(const a of actions){
+      if(a.kind==='tap'&&t>=a.t-.28&&t<=a.t+.32){const p=a.target();last=p;return {x:p[0],y:p[1],down:t>=a.t&&t<a.t+.1,visible:true,press:clamp(1-Math.abs(t-a.t-.05)/.18),fade:clamp(Math.min((t-a.t+.28)/.12,(a.t+.32-t)/.12)),mode};}
+      if(a.kind==='swipe'&&t>=a.t0-.15&&t<=a.t1+.2){const p0=a.from(),p1=a.to(),x=inOut(seg(t,a.t0,a.t1));const p=[lerp(p0[0],p1[0],x),lerp(p0[1],p1[1],x)];last=p;
+        return {x:p[0],y:p[1],down:t>=a.t0&&t<a.t1,visible:true,press:t>=a.t0&&t<a.t1?1:0,fade:clamp(Math.min((t-a.t0+.15)/.12,(a.t1+.2-t)/.15)),mode};}
+      if(a.kind==='path'&&t>=a.t0&&t<=a.t1){
+        const pts=a.points.map(p=>typeof p.at==='function'?p.at():p.at);let p=pts[0];
+        for(let i=1;i<pts.length;i++){if(t<=a.points[i].t){const x=inOut(seg(t,a.points[i-1].t,a.points[i].t));p=[lerp(pts[i-1][0],pts[i][0],x),lerp(pts[i-1][1],pts[i][1],x)];break;}p=pts[i];}
+        const click=(a.clicks||[]).find(c=>t>=c&&t<c+.09);last=p;
+        return {x:p[0],y:p[1],down:Boolean(click),visible:true,press:click?1:0,fade:clamp(Math.min((t-a.t0)/.2,(a.t1-t)/.2)),mode};}
+    }
+    return {x:last[0],y:last[1],down:false,visible:false,press:0,fade:0,mode};
+  };
+}
+const touch=put(stage,'div','abs',{});touch.id='touch';
+const cursor=put(stage,'div','abs',{},'<svg viewBox="0 0 46 46" width="46" height="46"><use href="#arrow" fill="#111" stroke="#fff" stroke-width="2.5" stroke-linejoin="round"/></svg>');cursor.id='cursor';
+function drawPointer(p){
+  if(p.mode==='touch'){touch.style.left=p.x+'px';touch.style.top=p.y+'px';opacity(touch,p.fade);touch.style.transform=`scale(${1-.22*p.press})`;opacity(cursor,0);}
+  else{cursor.style.left=p.x-4+'px';cursor.style.top=p.y-4+'px';opacity(cursor,p.fade);cursor.style.transform=`scale(${1-.12*p.press})`;opacity(touch,0);}
+}
+
+const reels={};
+// ---------------------------------------------------------------- Lionel Studio concept, phone
+reels.lionel=async()=>{
+  const ink='#121212',paper='#efebe4',red='#e63b2e';
+  stage.style.background=ink;
+  const phone=frameFor(stage,'../lionel.html',{left:129,top:330,width:432,height:768,scale:1.9,radius:56});
+  phone.box.style.boxShadow='0 40px 120px rgba(0,0,0,.6), 0 0 0 10px #262626';
+  const tag=put(stage,'div','abs tag',{left:'64px',top:'70px',color:'#8f897f'},'Lionel Studio × DCBR');
+  const caps=[
+    lines(stage,['Passa il dito.',`La maglietta si gira<b style="color:${red};font-weight:400">!!!</b>`],{left:'64px',top:'120px',color:paper,fontSize:'84px'}),
+    lines(stage,['Tocca il capo.','Si apre la scheda.'],{left:'64px',top:'120px',color:paper,fontSize:'84px'}),
+    lines(stage,['Prezzo in euro.',`Carrello a un tap<b style="color:${red};font-weight:400">.</b>`],{left:'64px',top:'120px',color:paper,fontSize:'84px'}),
+  ];
+  const note=put(stage,'div','abs',{left:'0',right:'0',top:'1826px',textAlign:'center',color:'#8f897f',font:'400 26px/1.3 Manrope,sans-serif'},'Concept di DCBR Agency · T-shirt concept generate con AI');
+  const outro=put(stage,'div','abs',{inset:'0',background:ink});
+  const outroText=lines(outro,['Dalla foto','del capo',`alla vetrina`,`che gira<b style="color:${red};font-weight:400">!!!</b>`],{left:'64px',top:'560px',color:paper,fontSize:'150px'});
+  const outroBrand=put(outro,'div','abs',{left:'64px',top:'1260px',color:paper,font:'400 64px/1 "Archivo Black",sans-serif',letterSpacing:'-.02em'},'DCBR AGENCY');
+  const outroSub=put(outro,'div','abs',{left:'64px',top:'1350px',right:'64px',color:'#a39d93',font:'400 34px/1.35 Manrope,sans-serif'},'Siti che si muovono, video AI di prodotto e contenuti per i social.<br>Concept per Lionel Studio.<br><span style="font-size:26px;color:#6f6a62">Interazione ispirata a @cambreedesigns · starter di Amir Mušić</span>');
+  const rackY=()=>{const d=phone.frame.contentDocument.querySelector('#rack').getBoundingClientRect();return d.top+210;};
+  // About 1.2 neighbor spacings: far enough to settle on the next garment, never two.
+  const swipe=(t0,dir)=>({kind:'swipe',t0,t1:t0+.38,from:()=>frameXY(phone,dir<0?292:150,rackY()),to:()=>frameXY(phone,dir<0?150:292,rackY())});
+  const tap=(t,target)=>({kind:'tap',t,target});
+  const pointer=pointerTimeline([
+    swipe(.7,-1),swipe(2.2,-1),swipe(3.7,-1),
+    tap(5.3,()=>inFrame(phone,'#previous')),tap(5.75,()=>inFrame(phone,'#previous')),tap(6.2,()=>inFrame(phone,'#previous')),
+    tap(7.3,()=>inFrame(phone,'.garment[data-index="0"]',.5,.45)),
+    tap(8.4,()=>inFrame(phone,'.sizes button:nth-child(3)')),
+    tap(9.3,()=>inFrame(phone,'#add-to-cart')),
+    tap(10.6,()=>inFrame(phone,'.close-button')),
+    swipe(11.6,-1),
+  ],'touch');
+  return {duration:16.6,frames:[phone],pointer,ready:()=>frameReady(phone),prepare:()=>prepareFrame(phone),render(t){
+    syncFrame(phone,t);
+    const s=1.035-.035*outCubic(seg(t,0,.6));phone.box.style.transform=`scale(${s})`;
+    reveal(caps[0],t,0,.14,.45,6.7);reveal(caps[1],t,6.9,.14,.45,8.95);reveal(caps[2],t,9.1,.14,.45,99);
+    if(t<6.7)reveal(caps[1],t,99);if(t<8.95)reveal(caps[2],t,99);
+    const o=outCubic(seg(t,13.0,13.5));outro.style.transform=`translateY(${(1-o)*100}%)`;
+    reveal(outroText,t,13.35,.11,.5);
+    opacity(outroBrand,seg(t,14.0,14.4));outroBrand.style.transform=`translateY(${(1-outCubic(seg(t,14,14.5)))*30}px)`;
+    opacity(outroSub,seg(t,14.3,14.7));opacity(tag,1-seg(t,13,13.3));opacity(note,1-seg(t,13,13.3));
+  }};
+};
+
+// ---------------------------------------------------------------- DCBR: what the agency can do
+reels.dcbr=async()=>{
+  const bg='#0b0a10',fg='#f4f1ff',accent='#a855f7',soft='#9d97b3';
+  stage.style.background=bg;
+  const grid=put(stage,'div','abs',{inset:'0',backgroundImage:'linear-gradient(rgba(168,85,247,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(168,85,247,.07) 1px,transparent 1px)',backgroundSize:'90px 90px'});
+  const brand=put(stage,'div','abs tag',{left:'64px',top:'70px',color:soft},'DCBR Agency');
+  const tees=await Promise.all(['lionel-letsgooo-black','lionel-letsgooo-sand','lionel-studio-bone','lionel-monogram-olive'].map(atlas));
+  // Hook
+  const hook1=lines(stage,['Il tuo sito','è fermo.'],{left:'64px',top:'220px',color:fg,fontSize:'150px'});
+  const hook2=lines(stage,['Il nostro','si muove.'],{left:'64px',top:'540px',color:accent,fontSize:'150px'});
+  const hookCanvas=put(stage,'canvas','abs',{left:'0',top:'880px'});hookCanvas.width=1080;hookCanvas.height=900;
+  // Step headers
+  const step=(n,title,sub)=>{const g=lines(stage,[n,title],{left:'64px',top:'200px',color:fg,fontSize:'120px'});g.spans[0].style.color=accent;
+    const s=put(stage,'div','abs',{left:'64px',top:'470px',right:'64px',color:soft,font:'400 38px/1.35 Manrope,sans-serif',opacity:0},sub);return {g,s};};
+  const steps=[step('01','Foto del capo','Partiamo dalle immagini del tuo prodotto: fronte e profilo.'),
+               step('02','Video AI','Un modello video genera la rotazione tra le due pose.'),
+               step('03','30 fotogrammi','Sfondo rimosso, fotogrammi impacchettati: meno di 0,3 MB.'),
+               step('04','Vetrina viva','Passi sopra un capo: si gira verso di te.')];
+  // 01 cards
+  const cards=[0,1].map(i=>{const c=put(stage,'div','abs',{left:(64+i*488)+'px',top:'640px',width:'464px',height:'760px',background:'#efebe4',borderRadius:'28px',overflow:'hidden',opacity:0});
+    const cv=put(c,'canvas','',{});cv.width=464;cv.height=660;const l=put(c,'div','abs tag',{left:'28px',bottom:'34px',color:'#121212'},i?'Profilo':'Fronte');return {c,cv};});
+  // 02 green take
+  const take=put(stage,'div','abs',{left:'64px',top:'640px',width:'952px',height:'900px',borderRadius:'28px',overflow:'hidden',background:'#1fd14a',opacity:0});
+  const takeCv=put(take,'canvas','',{});takeCv.width=952;takeCv.height=900;
+  const rec=put(take,'div','abs tag',{left:'30px',top:'30px',color:'#08310f'},'● Rec · 1080p · 50 fps');
+  const tc=put(take,'div','abs tag',{right:'30px',top:'30px',color:'#08310f'},'00:00');
+  // 03 atlas grid
+  const sheet=put(stage,'div','abs',{left:'64px',top:'640px',width:'952px',height:'928px',borderRadius:'28px',overflow:'hidden',opacity:0,
+    backgroundColor:'#2a2735',backgroundImage:'linear-gradient(45deg,#353142 25%,transparent 25%,transparent 75%,#353142 75%),linear-gradient(45deg,#353142 25%,transparent 25%,transparent 75%,#353142 75%)',backgroundSize:'40px 40px',backgroundPosition:'0 0,20px 20px'});
+  const sheetCv=put(sheet,'canvas','',{});sheetCv.width=952;sheetCv.height=928;
+  // 04 browser
+  const browser=put(stage,'div','abs',{left:'36px',top:'640px',width:'1008px',height:'852px',borderRadius:'22px',overflow:'hidden',background:'#1b1924',boxShadow:'0 40px 120px rgba(0,0,0,.6)',opacity:0});
+  put(browser,'div','abs',{left:'0',right:'0',top:'0',height:'60px',background:'#1b1924'},'<span style="position:absolute;left:26px;top:22px;width:16px;height:16px;border-radius:50%;background:#ff5f57;box-shadow:26px 0 #febc2e,52px 0 #28c840"></span><span style="position:absolute;left:120px;right:120px;top:14px;height:32px;border-radius:16px;background:#2b2836;color:#bdb7d1;font:400 18px/32px Manrope,sans-serif;text-align:center">concept DCBR · Lionel Studio</span>');
+  const desk=frameFor(browser,'../lionel.html',{left:0,top:60,width:1120,height:880,scale:.9});
+  const deskNote=put(stage,'div','abs',{left:'64px',right:'64px',top:'1540px',color:soft,font:'400 34px/1.35 Manrope,sans-serif',opacity:0},'Funziona anche da telefono: scorri la stanga e tocchi il capo.');
+  // Outro
+  const outro=put(stage,'div','abs',{inset:'0',background:bg});
+  const outroText=lines(outro,['DCBR','Agency'],{left:'64px',top:'420px',color:fg,fontSize:'230px'});outroText.spans[1].style.color=accent;
+  const list=['Siti interattivi','Video AI di prodotto','Contenuti per i social'].map((x,i)=>put(outro,'div','abs',{left:'64px',top:(980+i*86)+'px',color:fg,font:'400 54px/1 "Archivo Black",sans-serif',letterSpacing:'-.02em',opacity:0},'<span style="color:'+accent+'">→ </span>'+x));
+  const cta=put(outro,'div','abs',{left:'64px',top:'1340px',padding:'30px 44px',borderRadius:'999px',background:accent,color:'#fff',font:'600 40px/1 Manrope,sans-serif',opacity:0},'Scrivici: lo facciamo per il tuo brand');
+  const caption=put(outro,'div','abs',{left:'64px',right:'64px',top:'1520px',color:soft,font:'400 28px/1.4 Manrope,sans-serif',opacity:0},'Esempio: concept per Lionel Studio. Interazione ispirata a @cambreedesigns, starter open source di Amir Mušić.');
+
+  const S=[[2.4,6.4],[6.4,10.4],[10.4,14.0],[14.0,21.2]];
+  // Garment rest positions follow the rail width; resolve them from the live page instead.
+  const garment=i=>()=>inFrame(desk,`.garment[data-index="${i}"]`,.5,.5);
+  const pointer=pointerTimeline([{kind:'path',t0:14.3,t1:21.0,points:[
+    {t:14.3,at:()=>frameXY(desk,560,960)},{t:15.0,at:garment(0)},{t:16.1,at:garment(0)},{t:16.7,at:garment(1)},{t:17.6,at:garment(1)},{t:18.2,at:garment(2)},{t:19.1,at:garment(2)},{t:19.7,at:garment(3)},{t:21.0,at:garment(3)}],clicks:[20.2]}],'cursor');
+  return {duration:25,frames:[desk],pointer,ready:()=>frameReady(desk),prepare:()=>prepareFrame(desk),render(t){
+    syncFrame(desk,t);
+    // Hook: the black tee turns from the very first frame.
+    reveal(hook1,t,0,.12,.4,2.3);reveal(hook2,t,.85,.12,.4,2.3);
+    {const c=hookCanvas.getContext('2d');c.clearRect(0,0,1080,900);const a=1-seg(t,2.2,2.5);if(a>0){c.globalAlpha=a;const f=Math.round(29*pingpong(t+.3,1.8));tees[0].draw(c,f,540-336,40,672,784);c.globalAlpha=1;}}
+    steps.forEach((s,i)=>{const [a,b]=S[i];if(t<a-.1||t>b+.4){reveal(s.g,t,99);opacity(s.s,0);return;}reveal(s.g,t,a,.1,.4,b-.05);opacity(s.s,Math.min(seg(t,a+.35,a+.7),1-seg(t,b-.1,b+.15)));});
+    // 01 cards
+    cards.forEach((card,i)=>{const p=outBack(seg(t,2.7+i*.15,3.2+i*.15));const out=seg(t,6.15,6.45);opacity(card.c,Math.min(seg(t,2.7+i*.15,2.9+i*.15),1-out));
+      card.c.style.transform=`translateY(${(1-p)*120+out*-60}px) rotate(${(i?1:-1)*(1-p)*6}deg)`;
+      const c=card.cv.getContext('2d');c.clearRect(0,0,464,660);tees[0].draw(c,i?0:29,-14,40,492,574);});
+    // 02 take
+    {const a=Math.min(seg(t,6.6,6.9),1-seg(t,10.1,10.4));opacity(take,a);take.style.transform=`scale(${.94+.06*outCubic(seg(t,6.6,7.1))})`;
+     const c=takeCv.getContext('2d');c.clearRect(0,0,952,900);const u=seg(t,6.9,9.9);const f=Math.round(29*inOut(u<.5?u*2:2-u*2));tees[0].draw(c,f,476-350,60,700,817);
+     tc.textContent='00:0'+Math.min(5,Math.floor(u*6))+':'+String(Math.floor((u*6%1)*50)).padStart(2,'0');}
+    // 03 atlas
+    {const a=Math.min(seg(t,10.6,10.9),1-seg(t,13.7,14.0));opacity(sheet,a);const c=sheetCv.getContext('2d');c.clearRect(0,0,952,928);
+     const cw=952/6,ch=cw*448/384;for(let i=0;i<30;i++){const p=outCubic(seg(t,10.8+i*.045,11.05+i*.045));if(!p)continue;const x=(i%6)*cw,y=Math.floor(i/6)*ch;
+       c.globalAlpha=p;const sc=.8+.2*p;tees[0].draw(c,i,x+cw*(1-sc)/2,y+ch*(1-sc)/2+4,cw*sc,ch*sc);}
+     c.globalAlpha=1;const hi=Math.floor(seg(t,12.5,13.6)*30);if(t>12.5&&hi<30){c.strokeStyle=accent;c.lineWidth=5;c.strokeRect((hi%6)*cw+3,Math.floor(hi/6)*ch+3,cw-6,ch-6);}}
+    // 04 browser
+    {const a=Math.min(seg(t,14.0,14.3),1-seg(t,21.2,21.5));opacity(browser,a);browser.style.transform=`translateY(${(1-outCubic(seg(t,14,14.5)))*80}px)`;opacity(deskNote,Math.min(seg(t,15,15.4),1-seg(t,21.1,21.4)));}
+    // Outro
+    {const o=outCubic(seg(t,21.4,21.9));outro.style.transform=`translateY(${(1-o)*100}%)`;reveal(outroText,t,21.7,.12,.5);
+     list.forEach((n,i)=>{opacity(n,seg(t,22.3+i*.18,22.6+i*.18));n.style.transform=`translateX(${(1-outCubic(seg(t,22.3+i*.18,22.8+i*.18)))*-40}px)`;});
+     opacity(cta,seg(t,23.0,23.3));cta.style.transform=`scale(${.9+.1*outBack(seg(t,23,23.4))})`;opacity(caption,seg(t,23.3,23.6));opacity(brand,1-seg(t,21.4,21.7));}
+  }};
+};
+
+const reel=await reels[which]();
+window.reel={duration:reel.duration,
+  isReady:()=>reel.ready(),
+  prepare:()=>reel.prepare(),
+  frame(t){reel.render(t);const p=reel.pointer(t);drawPointer(p);return p;}};
+window.reelLoaded=true;
+</script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+/* Lionel Studio concept skin, layered over style.css. */
+@font-face{font-family:Anton;src:url('../public/fonts/Anton-Regular.woff2') format('woff2');font-weight:400;font-display:swap}
+@font-face{font-family:'Archivo Black';src:url('../public/fonts/ArchivoBlack-Regular.woff2') format('woff2');font-weight:400;font-display:swap}
+:root{--paper:#efebe4;--ink:#121212;--muted:#6d675e;--line:#d5cfc4;--accent:#e63b2e;--tracking:-.01em}
+body{background:var(--paper)}
+:focus-visible{outline-color:var(--accent)}
+.promo{background:var(--ink);color:var(--paper);overflow:hidden;font-size:12px;letter-spacing:.06em;text-transform:uppercase;height:34px;display:flex;align-items:center}
+.promo-track{display:flex;gap:64px;white-space:nowrap;animation:promo 26s linear infinite;padding-left:64px}
+.promo-track span::before{content:'●';color:var(--accent);font-size:7px;vertical-align:2px;margin-right:12px}
+@keyframes promo{to{transform:translateX(-50%)}}
+.site-header{padding:18px 5vw;border-bottom:1px solid var(--line);gap:28px}
+.wordmark{font:400 22px/1 'Archivo Black',Manrope,sans-serif;letter-spacing:-.02em}
+.wordmark span{display:none}
+.main-nav{display:flex;gap:28px;font-size:13px;text-transform:uppercase;letter-spacing:.08em}
+.main-nav a{text-decoration:none;padding:6px 0;border-bottom:2px solid transparent}
+.main-nav a[aria-current]{border-color:var(--ink)}
+.cart-button{border:1px solid var(--ink);background:none;padding:8px 14px;font-size:12px;text-transform:uppercase;letter-spacing:.08em;border-radius:999px}
+.cart-button span{display:inline-grid;place-items:center;min-width:20px;height:20px;margin-left:6px;border-radius:999px;background:var(--ink);color:var(--paper);font-size:11px;letter-spacing:0;transition:transform .25s}
+.cart-button.bump span{background:var(--accent);transform:scale(1.25)}
+main{max-width:1440px;padding-top:22px}
+.intro{display:grid;grid-template-columns:1fr auto;align-items:end;gap:6px 24px}
+.intro .eyebrow{grid-column:1/-1;margin:0;text-transform:uppercase;letter-spacing:.14em;font-size:11px;color:var(--ink)}
+.intro h1{font:400 clamp(64px,8.6vw,124px)/.86 Anton,Impact,sans-serif;letter-spacing:-.005em;text-transform:uppercase;margin:0}
+.bang{color:var(--accent)}
+.intro-note{text-align:right;max-width:240px;margin:0 0 10px;color:var(--muted)}
+.rack{margin-top:14px;height:480px}
+/* Four garments share the rail: on desktop an edge garment may turn past the rack's side. */
+@media(min-width:701px){.rack{overflow:visible}}
+.rail{background:linear-gradient(#3a3a3a,#0d0d0d 45%,#2a2a2a 70%,#060606);border-top:1px solid #555;border-bottom:1px solid #000}
+.garment .wire{background:#3d3d3d}
+.load-state{background:var(--paper)}
+.collection-bar{border-color:var(--ink);align-items:center}
+.selected-info h2{font:400 22px/1.1 'Archivo Black',Manrope,sans-serif;letter-spacing:-.02em}
+.selected-info>span{color:var(--ink)}
+.selected-price{font:400 30px/1 Anton,Impact,sans-serif;margin:0 auto 0 0}
+.arrow-button{border-color:var(--ink);border-radius:999px}
+.inspect-button{border-radius:999px;text-transform:uppercase;letter-spacing:.08em;font-size:12px;padding:12px 24px}
+.lines{max-width:1440px;margin:56px auto 0;padding:48px 5vw 64px;border-top:1px solid var(--line)}
+.lines .eyebrow{text-transform:uppercase;letter-spacing:.14em;font-size:11px;color:var(--ink);margin:0 0 12px}
+.lines h2{font:400 clamp(36px,5vw,64px)/.95 Anton,Impact,sans-serif;text-transform:uppercase;margin:0 0 34px}
+.line-cards{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.line-cards article{background:var(--ink);color:var(--paper);padding:28px;min-height:220px;display:flex;flex-direction:column}
+.line-cards article.tailoring{background:#1f2a3a}
+.line-cards span{font-size:12px;opacity:.6}
+.line-cards h3{font:400 30px/1 'Archivo Black',Manrope,sans-serif;letter-spacing:-.02em;margin:auto 0 12px}
+.line-cards p{margin:0;font-size:14px;max-width:420px;opacity:.8}
+.site-footer{border-color:var(--line);align-items:center;font-size:12px;color:var(--ink)}
+.site-footer .text-button{font-size:12px;color:var(--muted)}
+dialog{background:var(--paper)}
+.detail-stage{background:#e4ded3}
+.product-copy h2{font:400 40px/.95 Anton,Impact,sans-serif;text-transform:uppercase;margin:8px 0 12px}
+.product-copy>.eyebrow{text-transform:uppercase;letter-spacing:.1em}
+.product-price{font:400 28px/1 Anton,Impact,sans-serif;color:var(--ink)!important;margin:0 0 14px}
+.sizes{display:flex;gap:8px;margin:18px 0 12px}
+.sizes button{width:48px;height:42px;border:1px solid var(--ink);background:none;font-size:13px}
+.sizes button[aria-checked=true]{background:var(--ink);color:var(--paper)}
+.add-button{width:100%;min-height:52px;border:0;background:var(--accent);color:#fff;font-size:13px;text-transform:uppercase;letter-spacing:.1em;border-radius:999px;transition:background .2s}
+.add-button.done{background:var(--ink)}
+.product-copy dl{margin:20px 0}
+.view-tabs button{border-color:var(--ink);border-radius:999px}
+@media(max-width:900px){.main-nav{display:none}}
+@media(max-width:700px){
+  .promo{font-size:10px;height:30px}
+  .site-header{padding:14px 20px}
+  .wordmark{font-size:18px}
+  .cart-button{padding:7px 11px;font-size:11px}
+  main{padding:22px 20px 20px}
+  .intro{grid-template-columns:1fr}
+  .intro h1{font-size:56px;white-space:nowrap}
+  .intro-note{text-align:left;max-width:none;margin:4px 0 0}
+  .rack{margin-top:8px;height:430px}
+  .collection-bar{display:grid;grid-template-columns:1fr auto;gap:14px}
+  .selected-price{margin:0;font-size:26px}
+  .browse-controls{grid-column:1/-1}
+  .selected-info h2{font-size:18px}
+  .lines{margin-top:30px;padding:36px 20px 44px}
+  .line-cards{grid-template-columns:1fr}
+  .line-cards article{min-height:170px}
+  .product-copy h2{font-size:32px}
+  .sizes{margin:12px 0 10px}
+  .site-footer span:first-child{font-size:12px}
+}
+@media(prefers-reduced-motion:reduce){.promo-track{animation:none}}

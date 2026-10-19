@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "width": 384,
+  "height": 448,
+  "columns": 6,
+  "frameCount": 30,
+  "pivot": [
+    0.5,
+    0.027
+  ],
+  "atlas": "atlas.webp",
+  "profile": "profile.webp",
+  "front": "front.webp",
+  "source": {
+    "kind": "restyled-generated-video",
+    "base": "lake-white-v3",
+    "baseSha256": "8cc963dc1ca1f0830d98da3e20aa0a9e7e6f66a927cc54f9f883cc84c57ca5cd",
+    "artworkSha256": "d26fd23376a2f88a93ea2d50688c414d6bf853ad746777e7d0750b40d7f53699",
+    "fabric": "#cbb595",
+    "note": "Lionel Studio concept tee by DCBR: restyled from the MIT lake-white-v3 take"
+  },
+  "processing": {
+    "printBand": [
+      80,
+      232
+    ],
+    "trackedFrames": 27,
+    "contrast": 0.8
+  },
+  "bytes": 291104
+}

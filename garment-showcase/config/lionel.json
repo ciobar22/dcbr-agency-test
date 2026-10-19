@@ -1,0 +1,12 @@
+{
+  "title": "LIONEL STUDIO",
+  "subtitle": "Drop 01 · T-shirt",
+  "hints": {"pointer": "Passa sopra un capo per girarlo · Clicca per i dettagli", "touch": "Scorri per sfogliare · Tocca per i dettagli"},
+  "timing": {"intentMs": 80, "turnMs": 360, "returnMs": 280, "endpointWindow": 0.3},
+  "items": [
+    {"id": "letsgooo-black", "name": "LET'S GOOO!!! Tee", "type": "T-shirt oversize in cotone", "color": "Nero", "price": "€ 68", "description": "La frase del negozio, stampata in grande sul petto. Cotone pesante, vestibilità oversize, retro pulito.", "previewLabel": "Concept DCBR del capo in catalogo", "motion": "fixtures/lionel-letsgooo-black/manifest.json", "back": "fixtures/lionel-letsgooo-black/back.webp"},
+    {"id": "letsgooo-sand", "name": "LET'S GOOO!!! Tee Sabbia", "type": "T-shirt oversize in cotone", "color": "Sabbia", "price": "€ 68", "description": "La stessa energia in un tono caldo, da abbinare al coordinato beige. Stampa marrone tabacco.", "previewLabel": "Concept DCBR · non in catalogo", "motion": "fixtures/lionel-letsgooo-sand/manifest.json", "back": "fixtures/lionel-letsgooo-sand/back.webp"},
+    {"id": "studio-bone", "name": "LIONEL STUDIO Tee", "type": "T-shirt oversize in cotone", "color": "Panna", "price": "€ 68", "description": "Il nome del negozio, pulito e leggibile. La maglietta che firma tutte le altre.", "previewLabel": "Concept DCBR · non in catalogo", "motion": "fixtures/lionel-studio-bone/manifest.json", "back": "fixtures/lionel-studio-bone/back.webp"},
+    {"id": "monogram-olive", "name": "LS Monogram Tee", "type": "T-shirt oversize in cotone", "color": "Verde oliva", "price": "€ 68", "description": "Monogramma LS in panna su verde oliva. Per chi preferisce il logo al grido.", "previewLabel": "Concept DCBR · non in catalogo", "motion": "fixtures/lionel-monogram-olive/manifest.json", "back": "fixtures/lionel-monogram-olive/back.webp"}
+  ]
+}
