@@ -135,3 +135,31 @@ libreria Higgsfield dell'account.
 2. End card negli ultimi 2 secondi: logo DCBR e CTA "Scrivici in DM"
 3. Controllo del labiale e della pronuncia italiana: il modello mini a volte sbaglia.
    Se un video non convince, si rigenera solo quello.
+
+---
+
+## Versioni montate, pronte da pubblicare (21/10/2026)
+
+L'audio originale di Seedance è stato rimosso del tutto. Ogni video ha:
+- **Voce fuori campo in italiano** generata con ElevenLabs tramite Higgsfield (voce "Marcus"), con un testo nuovo scritto sulle immagini
+- **Sottotitoli parola per parola** (stile TikTok: maiuscolo, parola attiva in giallo), sincronizzati con la trascrizione automatica
+- **Hook testuale** nei primi 3 secondi, in alto
+- **Musica di sottofondo** (generata via codice, senza diritti) che si abbassa automaticamente quando parla la voce
+- **End card** negli ultimi 2 secondi: sfondo sfocato, logo testuale DCBR AGENCY e pulsante "SCRIVICI IN DM"
+- Export 1080x1920, H.264, AAC, volume -14 LUFS (lo standard per TikTok e Reels)
+
+| Ad | Video finale |
+|---|---|
+| 1 Il nipote | [mp4](https://d2ol7oe51mr4n9.cloudfront.net/user_34cwSgfXDF2KleVIDD3v8ZMNCWU/1242705d-50e1-4b33-be3e-7f2a90523e16.mp4) |
+| 2 Mezzanotte | [mp4](https://d2ol7oe51mr4n9.cloudfront.net/user_34cwSgfXDF2KleVIDD3v8ZMNCWU/97d36e95-ba3b-4ef6-9fa8-59fb6c66e3ac.mp4) |
+| 3 Dove sono finiti i soldi? | [mp4](https://d2ol7oe51mr4n9.cloudfront.net/user_34cwSgfXDF2KleVIDD3v8ZMNCWU/fb9eeafb-0e5a-4216-8034-e47954d7c432.mp4) |
+| 4 12 specialisti, un prezzo | [mp4](https://d2ol7oe51mr4n9.cloudfront.net/user_34cwSgfXDF2KleVIDD3v8ZMNCWU/ce3ba891-ac06-4b84-9bc0-19660342e843.mp4) |
+| 5 Posto ogni giorno, zero clienti | [mp4](https://d2ol7oe51mr4n9.cloudfront.net/user_34cwSgfXDF2KleVIDD3v8ZMNCWU/7bee0e5d-17a2-4f9f-b790-49d652beada4.mp4) |
+| 6 Il concorrente di fronte | [mp4](https://d2ol7oe51mr4n9.cloudfront.net/user_34cwSgfXDF2KleVIDD3v8ZMNCWU/8928ff43-9b2b-4ba1-a8fc-64f680605c83.mp4) |
+| 7 Il boost | [mp4](https://d2ol7oe51mr4n9.cloudfront.net/user_34cwSgfXDF2KleVIDD3v8ZMNCWU/626d4d41-a95b-468b-9958-77595f0d0f50.mp4) |
+| 8 Da brief a strategia | [mp4](https://d2ol7oe51mr4n9.cloudfront.net/user_34cwSgfXDF2KleVIDD3v8ZMNCWU/37489c05-0274-4658-ad56-d08cdb103b21.mp4) |
+| 9 Il ristorante vuoto | [mp4](https://d2ol7oe51mr4n9.cloudfront.net/user_34cwSgfXDF2KleVIDD3v8ZMNCWU/c7f080ff-cbdb-4c77-8c08-ef983f1068b8.mp4) |
+| 10 Le agenzie grandi non ti rispondono | [mp4](https://d2ol7oe51mr4n9.cloudfront.net/user_34cwSgfXDF2KleVIDD3v8ZMNCWU/08122f0b-3ea7-4768-bc61-654c98b34c33.mp4) |
+
+Gli script di montaggio sono in `ads/editing/`. Per rifare un video basta cambiare testo o hook in `ads.json`, rigenerare la voce e lanciare `python3 edit.py <ID>`.
+Richiedono ffmpeg, faster-whisper e i font Montserrat/Metropolis.
