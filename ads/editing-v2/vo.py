@@ -8,22 +8,22 @@ SR = 48000
 ID = sys.argv[1]
 VO = {
     "01": dict(voice="it-IT-DiegoNeural", rate=6, pitch=0, lines=[
-        (0.15, "I social? Li fa mio nipote."),
-        (2.35, "La sua strategia? Balletti col trapano."),
-        (5.30, "Risultato: tre like."),
-        (6.75, "Uno è di sua madre."),
+        (0.10, "I social li fa mio nipote."),
+        (2.30, "Strategia: balletti col trapano."),
+        (5.25, "Risultato: tre like."),
+        (6.85, "Uno è di sua madre."),
         (8.30, "Tuo nipote ti vuole bene."),
-        (9.75, "Noi ti portiamo clienti veri."),
-        (11.45, "Di Ci Bi Erre. Scrivici in di emme."),
+        (9.75, "Noi ti portiamo clienti."),
+        (11.40, "Di Ci Bi Erre. Scrivici."),
     ]),
     "06": dict(voice="it-IT-IsabellaNeural", rate=4, pitch=0, lines=[
         (0.15, "Lui ha la fila."),
-        (1.45, "Ma il gelato più buono è il tuo."),
-        (3.05, "Perché lui è ovunque sui social."),
+        (1.45, "Tu hai il gelato più buono."),
+        (3.15, "Ma lui è ovunque sui social."),
         (4.95, "Tu no."),
         (6.60, "Non vince il migliore."),
         (8.80, "Vince chi si fa vedere."),
-        (11.55, "Di Ci Bi Erre. Scrivici in di emme."),
+        (11.50, "Di Ci Bi Erre. Scrivici."),
     ]),
     "09": dict(voice="it-IT-DiegoNeural", rate=-4, pitch=-2, lines=[
         (0.20, "Locale perfetto."),
@@ -31,7 +31,7 @@ VO = {
         (3.25, "Il problema non è la cucina."),
         (6.25, "È che nessuno ti conosce."),
         (8.60, "Noi ti facciamo trovare."),
-        (11.30, "Di Ci Bi Erre Agency. Scrivici in di emme."),
+        (11.25, "Di Ci Bi Erre. Scrivici."),
     ]),
 }[ID]
 
@@ -73,11 +73,11 @@ for i, (t0, text) in enumerate(lines):
     limit = (lines[i + 1][0] if i + 1 < len(lines) else total - 0.15) - t0 - 0.05
     rate = VO["rate"]
     x = make_line(i, text, rate)
-    while len(x) / SR > limit and rate < VO["rate"] + 28:  # speed up only as much as needed
-        rate += 6; x = make_line(i, text, rate)
+    while len(x) / SR > limit and rate < VO["rate"] + 12:  # speed up only as much as needed
+        rate += 4; x = make_line(i, text, rate)
     a = int(t0 * SR); L = min(len(x), N - a)
     vo[a:a + L] += x[:L]
-    report.append(f"{t0:5.2f}s {len(x)/SR:4.2f}s/{limit:4.2f}s rate{rate:+d}% {text}")
+    report.append(("!! " if len(x)/SR>limit else "   ")+f"{t0:5.2f}s {len(x)/SR:4.2f}s/{limit:4.2f}s rate{rate:+d}% {text}")
 vo *= 0.89 / (np.max(np.abs(vo)) + 1e-9)
 
 # ducking envelope from the voice (fast attack, slow release)
