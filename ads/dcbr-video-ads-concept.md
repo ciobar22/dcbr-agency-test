@@ -175,3 +175,13 @@ Rifatti 3 ad con un montaggio basato sulle scritte a schermo: tagli sul ritmo, z
 | 1 Il nipote | [mp4](https://d2ol7oe51mr4n9.cloudfront.net/user_34cwSgfXDF2KleVIDD3v8ZMNCWU/482ba71b-f887-4a12-a48d-cd7ce5582879.mp4) | [mp4](https://d2ol7oe51mr4n9.cloudfront.net/user_34cwSgfXDF2KleVIDD3v8ZMNCWU/5c064583-a15d-4d0c-ae8f-4c5359042377.mp4) |
 | 6 Il concorrente di fronte | [mp4](https://d2ol7oe51mr4n9.cloudfront.net/user_34cwSgfXDF2KleVIDD3v8ZMNCWU/b7ec46d9-7bf5-4a45-b23d-a79d5c7d410d.mp4) | [mp4](https://d2ol7oe51mr4n9.cloudfront.net/user_34cwSgfXDF2KleVIDD3v8ZMNCWU/ee204a43-8ae3-4b39-9f42-71521d972c93.mp4) |
 | 9 Il ristorante vuoto | [mp4](https://d2ol7oe51mr4n9.cloudfront.net/user_34cwSgfXDF2KleVIDD3v8ZMNCWU/3b5a5a0a-0c3e-401e-8d60-966eea349acc.mp4) | [mp4](https://d2ol7oe51mr4n9.cloudfront.net/user_34cwSgfXDF2KleVIDD3v8ZMNCWU/1ddacec6-8eb1-47a4-b217-b6f212b1fb3f.mp4) |
+
+## v3: v2 con voce fuori campo italiana (22/10/2026)
+
+Voce neurale madrelingua (edge-tts: Giuseppe per gli ad 1 e 9, Isabella per l'ad 6), gratuita e senza crediti. La voce è sincronizzata con le scritte, mentre effetti e musica si abbassano sotto il parlato. Ho verificato il risultato trascrivendo l'audio finale con faster-whisper.
+
+| Ad | Voce + effetti (aggiungi un audio di tendenza) | Voce + effetti + musica |
+|---|---|---|
+| 1 Il nipote | [mp4](https://d2ol7oe51mr4n9.cloudfront.net/user_34cwSgfXDF2KleVIDD3v8ZMNCWU/e7630e82-a6c0-4d16-849a-848704a9c8a3.mp4) | [mp4](https://d2ol7oe51mr4n9.cloudfront.net/user_34cwSgfXDF2KleVIDD3v8ZMNCWU/29bbe02f-bbb4-4607-85ce-0c109f18c959.mp4) |
+| 6 Il concorrente di fronte | [mp4](https://d2ol7oe51mr4n9.cloudfront.net/user_34cwSgfXDF2KleVIDD3v8ZMNCWU/98232578-e7ff-412f-af22-711306bd1a56.mp4) | [mp4](https://d2ol7oe51mr4n9.cloudfront.net/user_34cwSgfXDF2KleVIDD3v8ZMNCWU/87e7599d-ec92-401a-89e9-5010feca370a.mp4) |
+| 9 Il ristorante vuoto | [mp4](https://d2ol7oe51mr4n9.cloudfront.net/user_34cwSgfXDF2KleVIDD3v8ZMNCWU/e6889b5d-f483-47f1-96f0-7478c329caa3.mp4) | [mp4](https://d2ol7oe51mr4n9.cloudfront.net/user_34cwSgfXDF2KleVIDD3v8ZMNCWU/6f199f7d-ed66-40c3-bdc7-aa52149c52c0.mp4) |

@@ -7,31 +7,31 @@ import edge_tts
 SR = 48000
 ID = sys.argv[1]
 VO = {
-    "01": dict(voice="it-IT-DiegoNeural", rate=6, pitch=0, lines=[
-        (0.10, "I social li fa mio nipote."),
-        (2.30, "Strategia: balletti col trapano."),
-        (5.25, "Risultato: tre like."),
+    "01": dict(voice="it-IT-GiuseppeMultilingualNeural", rate=6, pitch=0, lines=[
+        (0.10, "I social? Li fa mio nipote."),
+        (2.45, "La strategia? Balletti con il trapano."),
+        (5.20, "Risultato: tre like."),
         (6.85, "Uno è di sua madre."),
         (8.30, "Tuo nipote ti vuole bene."),
         (9.75, "Noi ti portiamo clienti."),
-        (11.40, "Di Ci Bi Erre. Scrivici."),
+        (11.30, "Di Ci Bi Erre. Scrivici."),
     ]),
     "06": dict(voice="it-IT-IsabellaNeural", rate=4, pitch=0, lines=[
         (0.15, "Lui ha la fila."),
         (1.45, "Tu hai il gelato più buono."),
         (3.15, "Ma lui è ovunque sui social."),
-        (4.95, "Tu no."),
+        (4.95, "E tu no."),
         (6.60, "Non vince il migliore."),
         (8.80, "Vince chi si fa vedere."),
         (11.50, "Di Ci Bi Erre. Scrivici."),
     ]),
-    "09": dict(voice="it-IT-DiegoNeural", rate=-4, pitch=-2, lines=[
+    "09": dict(voice="it-IT-GiuseppeMultilingualNeural", rate=-4, pitch=-2, lines=[
         (0.20, "Locale perfetto."),
         (1.55, "Sala vuota."),
         (3.25, "Il problema non è la cucina."),
         (6.25, "È che nessuno ti conosce."),
         (8.60, "Noi ti facciamo trovare."),
-        (11.25, "Di Ci Bi Erre. Scrivici."),
+        (11.05, "Di Ci Bi Erre. Scrivici."),
     ]),
 }[ID]
 
@@ -97,9 +97,9 @@ def master(x, target_rms=0.19):
     x = np.tanh(x * 1.2) / np.tanh(1.2)
     return x * min(target_rms / (np.sqrt(np.mean(x ** 2)) + 1e-9), 0.89 / (np.max(np.abs(x)) + 1e-9))
 
-fxg = fx * (1 - 0.45 * act[:, None])                     # SFX tucked under the voice
-A = master(vo * 1.0 + fxg * 0.55)
-B = master(vo * 1.0 + fxg * 0.5 + m * fade[:, None] * (0.42 - 0.30 * act[:, None]))
+fxg = fx * (1 - 0.7 * act[:, None])                     # SFX tucked under the voice
+A = master(vo * 1.0 + fxg * 0.32)
+B = master(vo * 1.0 + fxg * 0.3 + m * fade[:, None] * (0.42 - 0.30 * act[:, None]))
 writewav(f"work/{ID}/VA.wav", A); writewav(f"work/{ID}/VB.wav", B)
 
 for tag, wavp in (("voce", "VA"), ("voce-musica", "VB")):
