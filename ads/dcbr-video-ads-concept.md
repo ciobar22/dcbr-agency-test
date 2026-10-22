@@ -163,3 +163,15 @@ L'audio originale di Seedance è stato rimosso del tutto. Ogni video ha:
 
 Gli script di montaggio sono in `ads/editing/`. Per rifare un video basta cambiare testo o hook in `ads.json`, rigenerare la voce e lanciare `python3 edit.py <ID>`.
 Richiedono ffmpeg, faster-whisper e i font Montserrat/Metropolis.
+
+---
+
+## v2: montaggio con le scritte a schermo, senza voce AI (22/10/2026)
+
+Rifatti 3 ad con un montaggio basato sulle scritte a schermo: tagli sul ritmo, zoom e movimenti di camera, scritte animate (grafica HTML renderizzata con Chromium), effetti sonori sincronizzati e chiusura animata con l'invito a scriverci in DM. Nessun credito usato. Il codice è in `ads/editing-v2/`.
+
+| Ad | Solo effetti (aggiungi un audio di tendenza nell'app) | Con musica |
+|---|---|---|
+| 1 Il nipote | [mp4](https://d2ol7oe51mr4n9.cloudfront.net/user_34cwSgfXDF2KleVIDD3v8ZMNCWU/482ba71b-f887-4a12-a48d-cd7ce5582879.mp4) | [mp4](https://d2ol7oe51mr4n9.cloudfront.net/user_34cwSgfXDF2KleVIDD3v8ZMNCWU/5c064583-a15d-4d0c-ae8f-4c5359042377.mp4) |
+| 6 Il concorrente di fronte | [mp4](https://d2ol7oe51mr4n9.cloudfront.net/user_34cwSgfXDF2KleVIDD3v8ZMNCWU/b7ec46d9-7bf5-4a45-b23d-a79d5c7d410d.mp4) | [mp4](https://d2ol7oe51mr4n9.cloudfront.net/user_34cwSgfXDF2KleVIDD3v8ZMNCWU/ee204a43-8ae3-4b39-9f42-71521d972c93.mp4) |
+| 9 Il ristorante vuoto | [mp4](https://d2ol7oe51mr4n9.cloudfront.net/user_34cwSgfXDF2KleVIDD3v8ZMNCWU/3b5a5a0a-0c3e-401e-8d60-966eea349acc.mp4) | [mp4](https://d2ol7oe51mr4n9.cloudfront.net/user_34cwSgfXDF2KleVIDD3v8ZMNCWU/1ddacec6-8eb1-47a4-b217-b6f212b1fb3f.mp4) |
