@@ -9,7 +9,7 @@ brew install ffmpeg
 pip3 install numpy scipy opencv-python-headless mediapipe faster-whisper
 export REEL_FONTS=~/dcbr-agency-test/video-editing/fonts
 ```
-(If the clone asks for credentials: `gh auth login`, or download the branch ZIP from GitHub.)
+(If the clone asks for credentials: `gh auth login`, or download the branch ZIP from GitHub. If pip refuses with "externally-managed-environment", use a venv: `python3 -m venv ~/reel-venv && source ~/reel-venv/bin/activate`.)
 Then read `~/.claude/skills/reel-editor/SKILL.md` and follow it: it has the workflow, the `plan.json` schema and the style guide.
 Scripts: `~/dcbr-agency-test/video-editing/scripts/` (`transcribe.py`, `render.py`, `sfx.py`).
 
